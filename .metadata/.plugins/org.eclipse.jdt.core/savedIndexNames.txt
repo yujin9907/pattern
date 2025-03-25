@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/heo/Desktop/univ/패턴중심사고와프로그래밍/3주차과제/60190920_허유진/.metadata/.plugins/org.eclipse.jdt.core
+3800215477.index
+1865797976.index
+1962780109.index

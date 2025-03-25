@@ -1,0 +1,68 @@
+!SESSION 2025-03-21 15:33:54.541 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=23.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_KR
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/heo/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/heo/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-21 15:34:00.041
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-21 15:34:07.094
+!MESSAGE Logback config file: /Users/heo/Desktop/univ/패턴중심사고와프로그래밍/3주차과제/60190920_허유진/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.bindings' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-21 15:34:09.025
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SESSION 2025-03-24 15:06:46.247 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=23.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_KR
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/heo/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/heo/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-24 15:06:51.653
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-24 15:07:11.162
+!MESSAGE Logback config file: /Users/heo/Desktop/univ/패턴중심사고와프로그래밍/3주차과제/60190920_허유진/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.0.20241001-1350.xml
+
+!ENTRY org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.bindings' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2025-03-24 15:07:13.443
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+
+!ENTRY org.eclipse.debug.core 4 125 2025-03-24 15:07:26.149
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Stream closed
+	at java.base/java.io.BufferedInputStream.ensureOpen(BufferedInputStream.java:206)
+	at java.base/java.io.BufferedInputStream.implRead(BufferedInputStream.java:411)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:405)
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:95)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.internalRead(OutputStreamMonitor.java:249)
+	at org.eclipse.debug.internal.core.OutputStreamMonitor.read(OutputStreamMonitor.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
