@@ -3,12 +3,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
 import menu.GMenuBar;
 
-public class GMainFrame extends JFrame { // 제이프레임을 상속한 것 = 이게 특화
+public class GMainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -20,14 +21,24 @@ public class GMainFrame extends JFrame { // 제이프레임을 상속한 것 = �
 	private GDrawingPanel gDrawingPanel;
 	
 
+	public void initialize() {
+		this.gMenubar.initialize();
+		this.gToolbar.initialize();
+		this.gDrawingPanel.initialize();
+	}
+	
+
 	// 자식을 만들 때 1. 자식을 만듦 2. new 인스턴스화 3. add
 	public GMainFrame() {
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // 창 닫을 때 프로그램 종료
 		
-		// attribute (속성) // 상수로 하지 마라
-		this.setLocation(100, 200);
-		this.setSize(700, 600);  
+		// attribute (속성) // 상수 사용 지양 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = screenSize.width;
+        int height = screenSize.height;
+		this.setLocation((int) (width*0.1), (int)(height*0.1));
+		this.setSize((int) (width*0.4), (int)(height*0.4));
 		
 		// component (부품)
 		LayoutManager layout = new BorderLayout();
@@ -43,13 +54,8 @@ public class GMainFrame extends JFrame { // 제이프레임을 상속한 것 = �
 		this.add(gToolbar, BorderLayout.NORTH);
 		
 		// associated attributes
-		this.setVisible(true); // 메인프레임을 그려라
+		// 맨 마지막에 실행돼야 하는 로직
+		this.setVisible(true);
 	}
 	
-	public void initialize() {
-		this.gMenubar.initialize();
-		this.gToolbar.initialize();
-		this.gDrawingPanel.initialize();
-		
-	}
 }
