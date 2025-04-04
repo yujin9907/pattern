@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import menu.GMenuBar;
+import panel.GDrawingPanel;
+import toolbar.GToolBar;
 
 public class GMainFrame extends JFrame {
 

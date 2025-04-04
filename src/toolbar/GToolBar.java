@@ -1,3 +1,4 @@
+package toolbar;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
@@ -5,6 +6,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JToolBar;
+
+import panel.GDrawingPanel;
 
 public class GToolBar extends JToolBar {
 
