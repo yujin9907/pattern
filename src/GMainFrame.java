@@ -47,10 +47,9 @@ public class GMainFrame extends JFrame {
 		this.setJMenuBar(gMenubar);
 		
 		this.gDrawingPanel = new GDrawingPanel();
+		this.add(gDrawingPanel, BorderLayout.CENTER);
 
 		this.gToolbar = new GToolBar(gDrawingPanel);
-		
-		this.add(gDrawingPanel, BorderLayout.CENTER);
 		this.add(gToolbar, BorderLayout.NORTH);
 		
 		// associated attributes

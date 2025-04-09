@@ -1,3 +1,5 @@
+import util.Shape;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -12,16 +14,19 @@ public class GDrawingPanel extends JPanel {
     
     private static final long serialVersionUID = 1L;
     private Vector<GRectangle> rectangles; // 초기화 되지 않도록 저장 용도
+	private Shape shape; // toolbar 선택 도형
+	private GRectangle rectangle; // 공유 객체
+	private GTransformer transformer; // 공유
     
     public void initialize() {
     	
     }
     
-    public void initialize(String shape) {
+    public void initialize(String shapeStr) {
+		shape = Shape.of(shapeStr);
+		rectangle.initialize(shape);
         repaint();
     }
-    
-    
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -36,10 +41,13 @@ public class GDrawingPanel extends JPanel {
     
     public GDrawingPanel() {
         this.setBackground(Color.WHITE);
-        
-        MouseEventHandler mouseHandler = new MouseEventHandler();
-        this.addMouseListener(mouseHandler);
-        this.addMouseMotionListener(mouseHandler);
+
+		rectangle = new GRectangle();
+		transformer = new GTransformer(rectangle);
+
+		MouseEventHandler mouseHandler = new MouseEventHandler(transformer);
+		this.addMouseListener(mouseHandler);
+		this.addMouseMotionListener(mouseHandler);
         
         this.rectangles = new Vector<GRectangle>();
     }
@@ -50,17 +58,20 @@ public class GDrawingPanel extends JPanel {
     
    private class MouseEventHandler implements MouseListener, MouseMotionListener {
 
-		private GTransformer transformer;
+		private final GTransformer transformer;
 
-		@Override
+	   public MouseEventHandler(GTransformer transformer) {
+           this.transformer = transformer;
+	   }
+
+	   @Override
 		public void mouseClicked(MouseEvent e) {
 
 		}
 		
 		@Override
 		public void mousePressed(MouseEvent e) {
-			transformer = new GTransformer();
-			
+			// transformer = new GTransformer(rectangle);
 			Graphics2D graphics2D = (Graphics2D) getGraphics();
 			graphics2D.setXORMode(getBackground());
 			transformer.start(graphics2D,e.getX(), e.getY());
@@ -100,7 +111,4 @@ public class GDrawingPanel extends JPanel {
 		
 	   
    }
-   
-   
-    
 }

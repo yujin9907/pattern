@@ -57,8 +57,7 @@ public class GToolBar extends JToolBar {
 	private void addShapeListener(GDrawingPanel gDrawingPanel) {
 
         ActionListener actionListener = e -> {
-            gDrawingPanel.initialize(e.getActionCommand()); 
-            
+            gDrawingPanel.initialize(e.getActionCommand());
         };
         rectangleButton.addActionListener(actionListener);
         traiangleButton.addActionListener(actionListener);
