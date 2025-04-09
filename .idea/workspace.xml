@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e439591-299e-46c8-a1ce-c7a50d27ccae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pattern-workspace.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GDrawingPanel$MouseEventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GDrawingPanel$MouseEventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GDrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GDrawingPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GMainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GMainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GToolBar.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GToolBar.class" afterDir="false" />
+    <list default="true" id="4e439591-299e-46c8-a1ce-c7a50d27ccae" name="Changes" comment="0410 - 선택도형그리기 리팩토링">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GDrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GMainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GRectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GTransformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +16,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2vUoY6StBduc24TR8FO5WHP9Mw6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,7 +29,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "class-5",
+    "git-widget-placeholder": "task-6",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -61,6 +49,15 @@
       <updated>1744209066984</updated>
       <workItem from="1744209068117" duration="3179000" />
     </task>
+    <task id="LOCAL-00001" summary="0410 - 선택도형그리기 리팩토링">
+      <option name="closed" value="true" />
+      <created>1744212336979</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744212336979</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,7 +74,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="class-5" />
+                        <option value="class-backup" />
                       </list>
                     </value>
                   </entry>
@@ -88,5 +85,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0410 - 선택도형그리기 리팩토링" />
+    <option name="LAST_COMMIT_MESSAGE" value="0410 - 선택도형그리기 리팩토링" />
   </component>
 </project>
