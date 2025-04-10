@@ -1,70 +1,106 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import util.Shape;
-
 public class GDrawingPanel extends JPanel {
+    
+    private static final long serialVersionUID = 1L;
+    private Vector<GRectangle> rectangles; // 초기화 되지 않도록 저장 용도
+    
+    public void initialize() {
+    	
+    }
+    
+    public void initialize(String shape) {
+        repaint();
+    }
+    
+    
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); 
+        
+        // 그린 도형 저장
+        for(GRectangle r : rectangles) {
+        	r.draw((Graphics2D) g);
+        }
+    }
+     
+    
+    public GDrawingPanel() {
+        this.setBackground(Color.WHITE);
+        
+        MouseEventHandler mouseHandler = new MouseEventHandler();
+        this.addMouseListener(mouseHandler);
+        this.addMouseMotionListener(mouseHandler);
+        
+        this.rectangles = new Vector<GRectangle>();
+    }
+    
+    
+    
+    
+    
+   private class MouseEventHandler implements MouseListener, MouseMotionListener {
 
-	private static final long serialVersionUID = 1L;
-	
-	private String shape;
-	
-	public GDrawingPanel() {
-		 this.setBackground(Color.WHITE);
-	}
-	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		g.drawString("버튼 클릭 시 해당 도형이 그려집니다.", 30, this.getSize().height-30);
-		
-		if (shape == null || shape.equals("")) return;
-		
-		Shape s = Shape.of(this.shape);
-        switch (s) {
-	        case Rect -> g.drawRect(50, 50, 50, 50);
-	        case Oval -> g.drawOval(50, 50, 100, 70);
-	        case Tri -> {
-	            int[] xPoints = new int[]{100, 150, 50};
-	            int[] yPoints = new int[]{50, 150, 150};
-	            g.drawPolygon(xPoints, yPoints, 3);
-	        }
-	        case Poly -> {
-	            int[] xPoly = new int[]{50, 100, 150, 100, 50};
-	            int[] yPoly = new int[]{50, 30, 50, 100, 100};
-	            g.drawPolygon(xPoly, yPoly, 5);
-	        }
-	        case Text -> g.drawString("Text Box", 60, 80);
-	        default -> throw new IllegalArgumentException("Unexpected value: " + shape);
-	    }
-	}
-	
-	public void initialize(String shape) {
-		this.shape = shape;
-		repaint();
-	}
-	
-	public void initialize() {}
-	
-	/*
-	// 이벤트 담당 에이전트(이벤트 헨들러)
-	public void draw(String shape) {
-		Graphics g = this.getGraphics(); //기존 스타일을 그대로 유지하려면 os 의 그래픽스를 그대로 가져와야함
-				
-	}
-	*/
+		private GTransformer transformer;
 
-	
-	// 3.24, 이걸로 설명
-	// 행위를 확장하는 것
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g); // 부모 오버라이드니까 먼저 호출 함 해줘야 됨. 공식이다.
-		this.draw(g);
-	}
-	private void draw(Graphics g) {
-		g.drawRect(10, 10, 50, 50);
-	}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			transformer = new GTransformer();
+			
+			Graphics2D graphics2D = (Graphics2D) getGraphics();
+			graphics2D.setXORMode(getBackground());
+			transformer.start(graphics2D,e.getX(), e.getY());
+		}
+		
+		
+		@Override
+		public void mouseDragged(MouseEvent e) {
+
+			Graphics2D graphics2D = (Graphics2D) getGraphics();
+			graphics2D.setXORMode(getBackground());
+			transformer.drag(graphics2D, e.getX(), e.getY());
+		}
+		
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+
+			Graphics2D graphics2D = (Graphics2D) getGraphics();
+			graphics2D.setXORMode(getBackground());
+			GRectangle g = transformer.finish(graphics2D, e.getX(), e.getY());
+			rectangles.add(g);
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+		}
+
+		
+	   
+   }
+   
+   
+    
 }

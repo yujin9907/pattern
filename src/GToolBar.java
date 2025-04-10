@@ -16,10 +16,6 @@ public class GToolBar extends JToolBar {
 	private JRadioButton ovalButton;
 	private JRadioButton polygonButton;
 	private JRadioButton textButton;
-	// GShape
-	private JButton moveButton;
-	private JButton resizeButton;
-	private JButton rotateButton;
 	
 	public void initialize() {
 		
@@ -30,7 +26,6 @@ public class GToolBar extends JToolBar {
 		
 		addToolbarButton();
 		addShapeListener(gDrawingPanel);
-		addShapeButton();
 	}
 
 	// GToolbar 버튼 : rectangle, triangle, oval, polygon, textbox
@@ -58,7 +53,7 @@ public class GToolBar extends JToolBar {
 
 	}
 	
-	// GToolbar 이벤
+	// GToolbar 이벤트
 	private void addShapeListener(GDrawingPanel gDrawingPanel) {
 
         ActionListener actionListener = e -> {
@@ -70,19 +65,6 @@ public class GToolBar extends JToolBar {
         ovalButton.addActionListener(actionListener);
         polygonButton.addActionListener(actionListener);
         textButton.addActionListener(actionListener);
-	}
-	
-	// GShape 버튼 : draw / move / resize / rotate
-	private void addShapeButton() {
-        this.addSeparator();
-        
-        this.moveButton = new JButton("Move");
-        this.resizeButton = new JButton("Resize");
-        this.rotateButton = new JButton("Rotate");
-        
-        this.add(moveButton);
-        this.add(resizeButton);
-        this.add(rotateButton);
 	}
 
 }
