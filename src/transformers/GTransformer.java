@@ -1,5 +1,3 @@
-
-
 /* 04.07 이벤트를 추상화시키는 용도
 
 drawingpanel 에 event 를 넣은 이유? drawing panel 용 이벤트라서.
@@ -11,8 +9,13 @@ drawingpanel 에 event 를 넣은 이유? drawing panel 용 이벤트라서.
 2) Graphics
 
  */
+package transformers;
+
+
 
 import java.awt.Graphics2D;
+
+import shapes.GRectangle;
 
 public class GTransformer {
 

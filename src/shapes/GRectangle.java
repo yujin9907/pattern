@@ -1,6 +1,7 @@
-
-
 // repaint() 시 저장 용도 
+package shapes;
+
+
 
 import java.awt.Graphics2D;
 

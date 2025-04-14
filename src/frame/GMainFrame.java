@@ -1,27 +1,30 @@
+package frame;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-import menu.GMenuBar;
-
 public class GMainFrame extends JFrame {
-
+	// attribute
 	private static final long serialVersionUID = 1L;
 	
-	// 메뉴바
-	private GMenuBar gMenubar;
-	// 툴바
-	private GToolBar gToolbar;
-	// 드로잉 판넬
-	private GDrawingPanel gDrawingPanel;
+	// component
+	private GMenuBar gMenubar; // 메뉴바
+	private GShapeToolBar gToolbar; // 툴바
+	private GDrawingPanel gDrawingPanel; // 드로잉 판넬
 	
+	// associate
 
 	public void initialize() {
+		// associate
+		this.gMenubar.associate(this.gDrawingPanel);
+		this.gToolbar.associate(this.gDrawingPanel);
+		
+		// associated attributes: 맨 마지막에 실행돼야 하는 로직
+		this.setVisible(true);
+		
 		this.gMenubar.initialize();
 		this.gToolbar.initialize();
 		this.gDrawingPanel.initialize();
@@ -47,15 +50,11 @@ public class GMainFrame extends JFrame {
 		this.setJMenuBar(gMenubar);
 		
 		this.gDrawingPanel = new GDrawingPanel();
-
-		this.gToolbar = new GToolBar(gDrawingPanel);
-		
+		this.gToolbar = new GShapeToolBar(gDrawingPanel);
 		this.add(gDrawingPanel, BorderLayout.CENTER);
 		this.add(gToolbar, BorderLayout.NORTH);
 		
-		// associated attributes
-		// 맨 마지막에 실행돼야 하는 로직
-		this.setVisible(true);
+
 	}
 	
 }

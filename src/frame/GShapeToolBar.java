@@ -1,3 +1,4 @@
+package frame;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
@@ -6,29 +7,32 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JToolBar;
 
-public class GToolBar extends JToolBar {
+public class GShapeToolBar extends JToolBar {
 
 	private static final long serialVersionUID = 1L;
 	
-	// GToolbar
+	// component : GToolbar // 자식 : 내가 등록해야 
 	private JRadioButton rectangleButton;
 	private JRadioButton traiangleButton;
 	private JRadioButton ovalButton;
 	private JRadioButton polygonButton;
 	private JRadioButton textButton;
 	
+	// associations // 친구 : 부모가 나에게 가르쳐줘야 
+	private GDrawingPanel drawingPanel;
+	
 	public void initialize() {
 		
 	}
 	
-	public GToolBar(GDrawingPanel gDrawingPanel) {
+	public GShapeToolBar(GDrawingPanel gDrawingPanel) {
 		this.setLayout(new FlowLayout(FlowLayout.LEFT)); // 좌측정
 		
 		addToolbarButton();
 		addShapeListener(gDrawingPanel);
 	}
 
-	// GToolbar 버튼 : rectangle, triangle, oval, polygon, textbox
+	// component : GToolbar 버튼 (rectangle, triangle, oval, polygon, textbox)
 	private void addToolbarButton() {
 		
 		this.rectangleButton = new JRadioButton("rectangle");
@@ -65,6 +69,12 @@ public class GToolBar extends JToolBar {
         ovalButton.addActionListener(actionListener);
         polygonButton.addActionListener(actionListener);
         textButton.addActionListener(actionListener);
+	}
+
+	
+	public void associate(GDrawingPanel gDrawingPanel) {
+		this.drawingPanel = gDrawingPanel;
+		
 	}
 
 }

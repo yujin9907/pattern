@@ -1,3 +1,4 @@
+package frame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,6 +8,9 @@ import java.awt.event.MouseMotionListener;
 import java.util.Vector;
 
 import javax.swing.JPanel;
+
+import shapes.GRectangle;
+import transformers.GTransformer;
 
 public class GDrawingPanel extends JPanel {
     

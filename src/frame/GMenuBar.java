@@ -1,17 +1,22 @@
-package menu;
+package frame;
+
 import javax.swing.JMenuBar;
 
-import menu.GEditMenu;
-import menu.GFileMenu;
-import menu.GgraphicMenu;
+import menus.GEditMenu;
+import menus.GFileMenu;
+import menus.GgraphicMenu;
 
 public class GMenuBar extends JMenuBar {
 
 	private static final long serialVersionUID = 1L;
 
+	// component 
 	private GFileMenu fileMenu;
 	private GEditMenu editMenu;
 	private GgraphicMenu graphicMenu; 
+	
+	// associations
+	private GDrawingPanel drawingPanel;
 	
 	public GMenuBar() {
 		this.fileMenu = new GFileMenu();
@@ -26,5 +31,9 @@ public class GMenuBar extends JMenuBar {
 
 	public void initialize() {
 		// TODO Auto-generated method stub
+	}
+
+	public void associate(GDrawingPanel gDrawingPanel) {
+		this.drawingPanel = gDrawingPanel;
 	}
 }
