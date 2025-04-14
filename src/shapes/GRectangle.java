@@ -4,24 +4,31 @@ package shapes;
 
 
 import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Rectangle2D.Float;
 
-public class GRectangle {
-	private int x1, y1, x2, y2;
+public class GRectangle extends GShape {
+
+
+	private Rectangle2D.Float rectangle; // x1, x2,.. 와 같은 역할
 	
-	public void setPoint1(int x, int y) {
-		this.x1=x;
-		this.y1=y;
-	}
 	
-	public void setPoint2(int x, int y) {
-		this.x2=x;
-		this.y2=y;
+	public GRectangle() {
 		
-	}
-	
-	public void draw(Graphics2D graphics2D) {
-		graphics2D.drawRect(x1, y1, x2-x1, y2-y1);
-		
+		this.rectangle = new Rectangle2D.Float(0,0,0,0); // Float() defualt 가 0000 이지만 명시적으로 작성하는 게 좋다 
+		super.shape = this.rectangle;
 	}
 
+	public void setPoint(int x, int y) {
+		this.rectangle.setFrame(x, y, 0, 0); 
+	}
+	
+	public void dragPoint(int x, int y) {
+		double ox = rectangle.getX(); // original x
+		double oy = rectangle.getY(); // original y
+		double w = x - ox;
+		double h = y - oy;
+		
+		this.rectangle.setFrame(ox, oy, w, h); 
+	}
 }

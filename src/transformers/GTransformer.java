@@ -26,15 +26,15 @@ public class GTransformer {
 	public void start(Graphics2D graphis2D, int x, int y) {
 
 		rectangle = new GRectangle();
-		rectangle.setPoint1(x, y);
-		rectangle.setPoint2(x, y);
+		rectangle.setPoint(x, y);
+		rectangle.dragPoint(x, y);
 	}
 
 
 	public void drag(Graphics2D graphis2D, int x, int y) {
 		rectangle.draw(graphis2D);
 		
-		rectangle.setPoint2(x, y);
+		rectangle.dragPoint(x, y);
 		
 		rectangle.draw(graphis2D);
 	}
@@ -43,16 +43,11 @@ public class GTransformer {
 	public GRectangle finish(Graphics2D graphis2D, int x, int y) { // 같은 점에서 일어나므로 안 써도 됨
 		rectangle.draw(graphis2D);
 		
-		rectangle.setPoint2(x, y);
+		rectangle.dragPoint(x, y);
 		
 		rectangle.draw(graphis2D);
 		
 		return rectangle;
 	}
-	
 
-// GRectangle 로 리팩토링  
-//    private void draw(Graphics2D graphis2D) {
-//        graphis2D.drawRect(x1, y1, x2-x1, y2-y1);
-//    }
 }
