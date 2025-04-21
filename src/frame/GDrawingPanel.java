@@ -10,49 +10,34 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
+import frame.GShapeToolBar.EShapeType;
 import shapes.GRectangle;
 import shapes.GShape;
+import transformers.GDrawer;
 import transformers.GTransformer;
 
 public class GDrawingPanel extends JPanel {
 
-	public enum EShapeType { // 툴바에 넣을지 드로잉판넬에 넣을지 아주 고민해봐야 함
-		// enum : 상수, 심볼(값), 순서(어래이라서)을 모두 포함하고 있음
-		// 상수 코드에다 쓰지말고 나중에 파일 따로 빼라 (constant 나 resource 로)
-		eRectangle("rectangle", EDrawingType.e2P, GRectangle.class),
-		eEllipse("ellipse", EDrawingType.e2P, GRectangle.class),
-		eLine("line", EDrawingType.e2P, GRectangle.class),
-		ePolygon("polygon", EDrawingType.eNP, GRectangle.class);
 
-		private String name;
-		private EDrawingType drawingType;
-		private Class<? extends GShape> classShape;
-		EShapeType(String name, EDrawingType drawingType, Class<? extends GShape> gShape) {
-			this.name = name;
-			this.drawingType = drawingType;
-			this.classShape = gShape;
-		}
-		public String getName() {
-			return this.name;
-		}
-
-		public EDrawingType getDrawingType() {
-			return this.drawingType;
-		}
-
-		// 익셉션처리 추후 aspect 로 처리할 예정 : 익셉션처리 아주 중요하다 마구잡이로 던지면 안 된다 이렇게
-		public GShape getClassShape() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-            return classShape.getConstructor().newInstance();
-		}
+    
+    private static final long serialVersionUID = 1L;
+    private Vector<GShape> shapes; // 초기화 되지 않도록 저장 용도
+	private EShapeType eShapeType;
+	private EDrawingState eDrawingState;
+	
+	
+	public enum EDrawingState {
+		eIdle,
+		e2P,
+		eNP
 	}
+	
+
 	public enum EDrawingType { // 기하 기초 지식 : 모든 2d도형은 n개의 점으로 표현된다
 		e2P,
 		eNP
 	}
-    
-    private static final long serialVersionUID = 1L;
-    private Vector<GRectangle> rectangles; // 초기화 되지 않도록 저장 용도
-	private EShapeType eShapeType;
+	
 	public void setEShapeType(EShapeType eShapeType) {
 		this.eShapeType = eShapeType;
 	}
@@ -73,9 +58,33 @@ public class GDrawingPanel extends JPanel {
         super.paintComponent(g); 
         
         // 그린 도형 저장
-        for(GRectangle r : rectangles) {
+        for(GShape r : shapes) {
         	r.draw((Graphics2D) g);
         }
+    }
+    
+    
+    // 2 Point 의 경우
+    private void startDrawing(int x, int y) {
+//    	(예외처리 newShape() 안으로 옮기기)
+    	try {
+			GShape shape = eShapeType.newShape();
+			GTransformer transformer = new GDrawer(shape); // TODO 오류 뜬 채로 넘어감?
+			transformer.start((Graphics2D) getGraphics(),x, y);
+		} catch (NoSuchMethodException | InvocationTargetException | InstantiationException
+				| IllegalAccessException e1) {
+			e1.printStackTrace();
+		}
+    }
+    private void keepDrawing(int x, int y) {
+    	
+    }
+    private void finishDrawing(int x, int y) {
+    	
+    }
+    // N point 의 경우 추가 
+    private void addPoint(int x, int y) {
+	   
     }
      
     
@@ -86,7 +95,9 @@ public class GDrawingPanel extends JPanel {
         this.addMouseListener(mouseHandler);
         this.addMouseMotionListener(mouseHandler);
         
-        this.rectangles = new Vector<GRectangle>();
+        this.shapes = new Vector<GShape>();
+        this.eShapeType = null;
+        this.eDrawingState = EDrawingState.eIdle;
     }
     
     
@@ -104,20 +115,37 @@ public class GDrawingPanel extends JPanel {
 		
 		@Override
 		public void mousePressed(MouseEvent e) {
-			transformer = new GTransformer();
-			
-			Graphics2D graphics2D = (Graphics2D) getGraphics();
-			graphics2D.setXORMode(getBackground());
-			transformer.start(graphics2D,e.getX(), e.getY());
+			if (eDrawingState == EDrawingState.eIdle) {
+				// constraint : set Transformer (locate, scale, ... 구분하기 위함)
+				if (eShapeType == EShapeType.eSelect) {
+					// 선택 기능인 경우 
+				} else {
+					// 나머지(드로잉) 
+
+					// constraint : set Shape (drawing 일 때)
+					startDrawing(e.getX(), e.getY());
+					eDrawingState = EDrawingState.e2P;
+					
+				}
+			}
+//			
+//			transformer = new GTransformer();
+//			Graphics2D graphics2D = (Graphics2D) getGraphics();
+//			graphics2D.setXORMode(getBackground());
+//			transformer.start(graphics2D,e.getX(), e.getY());
 		}
 		
 		
 		@Override
 		public void mouseDragged(MouseEvent e) {
 
-			Graphics2D graphics2D = (Graphics2D) getGraphics();
-			graphics2D.setXORMode(getBackground());
-			transformer.drag(graphics2D, e.getX(), e.getY());
+			if (eDrawingState == EDrawingState.e2P) {
+				keepDrawing(e.getX(), e.getY());
+			}
+			
+//			Graphics2D graphics2D = (Graphics2D) getGraphics();
+//			graphics2D.setXORMode(getBackground());
+//			transformer.drag(graphics2D, e.getX(), e.getY());
 		}
 		
 		@Override
@@ -128,10 +156,15 @@ public class GDrawingPanel extends JPanel {
 		@Override
 		public void mouseReleased(MouseEvent e) {
 
-			Graphics2D graphics2D = (Graphics2D) getGraphics();
-			graphics2D.setXORMode(getBackground());
-			GRectangle g = transformer.finish(graphics2D, e.getX(), e.getY());
-			rectangles.add(g);
+			if (eDrawingState == EDrawingState.e2P) {
+				finishDrawing(e.getX(), e.getY());
+				eDrawingState = EDrawingState.eIdle;
+			}
+			
+//			Graphics2D graphics2D = (Graphics2D) getGraphics();
+//			graphics2D.setXORMode(getBackground());
+//			GRectangle g = transformer.finish(graphics2D, e.getX(), e.getY());
+//			shapes.add(g);
 		}
 
 		@Override

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adebc5a5-dd89-4632-9165-9b4c95a42715" name="Changes" comment="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association">
+    <list default="true" id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GRectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +22,7 @@
   "customColor": "",
   "associatedIndex": 2
 }]]></component>
-  <component name="ProjectId" id="2vi4ANN369BspBpu9WAtruVI17e" />
+  <component name="ProjectId" id="2w1wsHOoZETfNjpAiUK5w8cX1F5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,22 +44,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="adebc5a5-dd89-4632-9165-9b4c95a42715" name="Changes" comment="" />
-      <created>1744614418394</created>
+      <changelist id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="" />
+      <created>1745222597889</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744614418394</updated>
-      <workItem from="1744614419554" duration="4238000" />
+      <updated>1745222597889</updated>
+      <workItem from="1745222599341" duration="740000" />
     </task>
-    <task id="LOCAL-00001" summary="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association">
-      <option name="closed" value="true" />
-      <created>1744614548989</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1744614548989</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,26 +61,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association" />
-    <option name="LAST_COMMIT_MESSAGE" value="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association" />
   </component>
 </project>
