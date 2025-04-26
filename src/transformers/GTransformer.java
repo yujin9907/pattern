@@ -24,7 +24,6 @@ public class GTransformer {
 	
 	// 초기화
 	public void start(Graphics2D graphis2D, int x, int y) {
-
 		rectangle = new GRectangle();
 		rectangle.setPoint(x, y);
 		rectangle.dragPoint(x, y);
@@ -48,6 +47,25 @@ public class GTransformer {
 		rectangle.draw(graphis2D);
 		
 		return rectangle;
+	}
+
+	public void start(GRectangle rectangle) {
+		this.rectangle = rectangle;
+	}
+	public void move(Graphics2D graphis2D, int x, int y) {
+		rectangle.draw(graphis2D);
+
+		rectangle.move(x, y);
+
+		rectangle.draw(graphis2D);
+	}
+
+	public void resize(Graphics2D graphis2D, int x, int y) {
+		rectangle.draw(graphis2D);
+
+		rectangle.resize(x, y);
+
+		rectangle.draw(graphis2D);
 	}
 
 }

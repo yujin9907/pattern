@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adebc5a5-dd89-4632-9165-9b4c95a42715" name="Changes" comment="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association">
+    <list default="true" id="adebc5a5-dd89-4632-9165-9b4c95a42715" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GRectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shapes/GShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2vi4ANN369BspBpu9WAtruVI17e" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,7 +33,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "task-7",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,6 +92,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association" />
-    <option name="LAST_COMMIT_MESSAGE" value="0414 - 수업(7주차) 디렉토리 리팩토링&#10;drawingPanel,툴바,메뉴바 association" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

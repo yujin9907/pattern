@@ -22,7 +22,9 @@ public class GDrawingPanel extends JPanel {
 		eRectangle("rectangle", EDrawingType.e2P, GRectangle.class),
 		eEllipse("ellipse", EDrawingType.e2P, GRectangle.class),
 		eLine("line", EDrawingType.e2P, GRectangle.class),
-		ePolygon("polygon", EDrawingType.eNP, GRectangle.class);
+		ePolygon("polygon", EDrawingType.eNP, GRectangle.class),
+		eMove("move", EDrawingType.eNP, GRectangle.class),
+		eResize("resize", EDrawingType.eNP, GRectangle.class);
 
 		private String name;
 		private EDrawingType drawingType;
@@ -104,20 +106,48 @@ public class GDrawingPanel extends JPanel {
 		
 		@Override
 		public void mousePressed(MouseEvent e) {
-			transformer = new GTransformer();
-			
-			Graphics2D graphics2D = (Graphics2D) getGraphics();
-			graphics2D.setXORMode(getBackground());
-			transformer.start(graphics2D,e.getX(), e.getY());
+			switch (eShapeType) {
+				case eMove, eResize -> {
+					if (rectangles == null) return;
+					for(GRectangle r : rectangles) {
+						if (r.getRectangle().contains(e.getX(), e.getY())) {
+							transformer.start(r);
+							break;
+						}
+					}
+					break;
+				}
+				default -> {
+					transformer = new GTransformer();
+
+					Graphics2D graphics2D = (Graphics2D) getGraphics();
+					graphics2D.setXORMode(getBackground());
+					transformer.start(graphics2D,e.getX(), e.getY());
+					break;
+				}
+			}
 		}
 		
 		
 		@Override
 		public void mouseDragged(MouseEvent e) {
-
 			Graphics2D graphics2D = (Graphics2D) getGraphics();
 			graphics2D.setXORMode(getBackground());
-			transformer.drag(graphics2D, e.getX(), e.getY());
+
+			switch (eShapeType) {
+				case eMove -> {
+					transformer.move(graphics2D, e.getX(), e.getY());
+					break;
+				}
+				case eResize -> {
+					transformer.resize(graphics2D, e.getX(), e.getY());
+					break;
+				}
+				default -> {
+					transformer.drag(graphics2D, e.getX(), e.getY());
+					break;
+				}
+			}
 		}
 		
 		@Override
@@ -127,11 +157,21 @@ public class GDrawingPanel extends JPanel {
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-
-			Graphics2D graphics2D = (Graphics2D) getGraphics();
-			graphics2D.setXORMode(getBackground());
-			GRectangle g = transformer.finish(graphics2D, e.getX(), e.getY());
-			rectangles.add(g);
+			switch (eShapeType) {
+				case eMove -> {
+					break;
+				}
+				case eResize -> {
+					break;
+				}
+				default -> {
+					Graphics2D graphics2D = (Graphics2D) getGraphics();
+					graphics2D.setXORMode(getBackground());
+					GRectangle g = transformer.finish(graphics2D, e.getX(), e.getY());
+					rectangles.add(g);
+					break;
+				}
+			}
 		}
 
 		@Override
@@ -141,11 +181,5 @@ public class GDrawingPanel extends JPanel {
 		@Override
 		public void mouseExited(MouseEvent e) {
 		}
-
-		
-	   
    }
-   
-   
-    
 }

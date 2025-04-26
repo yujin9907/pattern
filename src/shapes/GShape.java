@@ -4,9 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 
 
-// 인..
-
-public class GShape {
+public abstract class GShape {
 	protected Shape shape;
 
 	public GShape() {}
@@ -15,6 +13,6 @@ public class GShape {
 		graphics2d.draw(shape);
 	}
 
-//	public void move() {}
-//	public void resize() {}
+	public abstract void move(int x, int y);
+	public abstract void resize(int x, int y);
 }

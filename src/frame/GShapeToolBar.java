@@ -11,15 +11,6 @@ import javax.swing.JToolBar;
 public class GShapeToolBar extends JToolBar {
 
 	private static final long serialVersionUID = 1L;
-	
-	// component : GToolbar // 자식 : 내가 등록해야 
-//	private JRadioButton rectangleButton;
-//	private JRadioButton traiangleButton;
-//	private JRadioButton ovalButton;
-//	private JRadioButton polygonButton;
-//	private JRadioButton textButton;
-	
-	// associations // 친구 : 부모가 나에게 가르쳐줘야 
 	private GDrawingPanel drawingPanel;
 	
 	public void initialize() {
@@ -46,15 +37,7 @@ public class GShapeToolBar extends JToolBar {
 			this.add(button); // TODO : 내가 쓴 코든데 필요함?
 		}
 	}
-	
-	// GToolbar 이벤트
-//	private void addShapeListener(GDrawingPanel gDrawingPanel) {
-//        ActionListener actionListener = e -> {
-//            gDrawingPanel.initialize(e.getActionCommand());
-//        };
-//	}
 
-	
 	public void associate(GDrawingPanel gDrawingPanel) {
 		this.drawingPanel = gDrawingPanel;
 		
