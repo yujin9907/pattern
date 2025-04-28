@@ -16,38 +16,24 @@ package transformers;
 import java.awt.Graphics2D;
 
 import shapes.GRectangle;
+import shapes.GShape;
 
-public class GTransformer {
+public abstract class GTransformer {
 
 
-	GRectangle rectangle;
-	
+	protected GShape gShape;
+
+	public GTransformer(GShape gShape) {
+		this.gShape = gShape;
+	}
+
 	// 초기화
-	public void start(Graphics2D graphis2D, int x, int y) {
-
-		rectangle = new GRectangle();
-		rectangle.setPoint(x, y);
-		rectangle.dragPoint(x, y);
-	}
+	public abstract void start(Graphics2D graphis2D, int x, int y);
 
 
-	public void drag(Graphics2D graphis2D, int x, int y) {
-		rectangle.draw(graphis2D);
-		
-		rectangle.dragPoint(x, y);
-		
-		rectangle.draw(graphis2D);
-	}
+	public abstract void drag(Graphics2D graphis2D, int x, int y) ;
 
 
-	public GRectangle finish(Graphics2D graphis2D, int x, int y) { // 같은 점에서 일어나므로 안 써도 됨
-		rectangle.draw(graphis2D);
-		
-		rectangle.dragPoint(x, y);
-		
-		rectangle.draw(graphis2D);
-		
-		return rectangle;
-	}
+	public abstract void finish(Graphics2D graphis2D, int x, int y) ;
 
 }

@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="">
+    <list default="true" id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="0426 - 7주차 과제 (move, resize 구현)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transformers/GDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,12 +17,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="task-8" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2w1wsHOoZETfNjpAiUK5w8cX1F5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -41,6 +48,26 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frame.Main" />
+      <module name="pattern-3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,6 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1745222597889</updated>
       <workItem from="1745222599341" duration="740000" />
+      <workItem from="1745818905287" duration="2846000" />
     </task>
     <servers />
   </component>
@@ -66,5 +94,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0426 - 7주차 과제 (move, resize 구현)" />
+    <option name="LAST_COMMIT_MESSAGE" value="0426 - 7주차 과제 (move, resize 구현)" />
   </component>
 </project>

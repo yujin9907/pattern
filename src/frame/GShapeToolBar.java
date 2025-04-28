@@ -14,9 +14,9 @@ import shapes.GShape;
 
 public class GShapeToolBar extends JToolBar {
 	
-	private EShapeType eShapeType;
+	private EShapeTool eShapeTool;
 	
-	public enum EShapeType { // 툴바에 넣을지 드로잉판넬에 넣을지 아주 고민해봐야 함
+	public enum EShapeTool { // 툴바에 넣을지 드로잉판넬에 넣을지 아주 고민해봐야 함
 		// enum : 상수, 심볼(값), 순서(어래이라서)을 모두 포함하고 있음
 		// 상수 코드에다 쓰지말고 나중에 파일 따로 빼라 (constant 나 resource 로)
 		eSelect("select", EDrawingType.e2P, GRectangle.class),
@@ -28,7 +28,7 @@ public class GShapeToolBar extends JToolBar {
 		private String name;
 		private EDrawingType drawingType;
 		private Class<? extends GShape> classShape;
-		EShapeType(String name, EDrawingType drawingType, Class<? extends GShape> gShape) {
+		EShapeTool(String name, EDrawingType drawingType, Class<? extends GShape> gShape) {
 			this.name = name;
 			this.drawingType = drawingType;
 			this.classShape = gShape;
@@ -77,11 +77,11 @@ public class GShapeToolBar extends JToolBar {
 		// enum = 배열 = n개의 원소를 가진 벡터
 		ButtonGroup group = new ButtonGroup();
 
-		for (EShapeType eShapeType : EShapeType.values()) {
-			JRadioButton button = new JRadioButton(eShapeType.getName());
+		for (EShapeTool eShapeTool : EShapeTool.values()) {
+			JRadioButton button = new JRadioButton(eShapeTool.getName());
 			ActionListener actionListener = new ActionHandler();
 			button.addActionListener(actionListener);
-			button.setActionCommand(eShapeType.toString()); // ActionHandler.actionPerformed() 에서 꺼내 쓸 거임
+			button.setActionCommand(eShapeTool.toString()); // ActionHandler.actionPerformed() 에서 꺼내 쓸 거임
 			group.add(button);
 			this.add(button); // TODO : 내가 쓴 코든데 필요함?
 		}
@@ -105,8 +105,8 @@ public class GShapeToolBar extends JToolBar {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String sShapeType = e.getActionCommand();
-			EShapeType eShapeType = EShapeType.valueOf(sShapeType); // 이벤트에서 넘겨준 string 을 통해 valueOf() = 메모리값을 찾을 수 있다.
-			drawingPanel.setEShapeType(eShapeType);
+			EShapeTool eShapeTool = EShapeTool.valueOf(sShapeType); // 이벤트에서 넘겨준 string 을 통해 valueOf() = 메모리값을 찾을 수 있다.
+			drawingPanel.setEShapeType(eShapeTool);
 		}
 	}
 
