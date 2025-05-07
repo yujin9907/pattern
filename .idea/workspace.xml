@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="0426 - 7주차 과제 (move, resize 구현)">
+    <list default="true" id="402b89eb-83c5-473f-8029-9b17ffc6a4b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transformers/GDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
+      <change beforePath="$USER_HOME$/UnSync/workspace/algoritm-0307/src/d9/MyLikedList0.java" beforeDir="false" afterPath="$USER_HOME$/UnSync/workspace/algoritm-0307/src/d9/MyLikedList0.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,25 +17,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="task-8" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/UnSync/workspace/algoritm-0307" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2w1wsHOoZETfNjpAiUK5w8cX1F5" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2wlGnoI9DYhHD8PrUmLWXfjb0rZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.MyLikedList0.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -49,12 +44,12 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="frame.Main" />
-      <module name="pattern-3" />
+    <configuration name="MyLikedList0" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="d9.MyLikedList0" />
+      <module name="algoritm-0307" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="frame.*" />
+          <option name="PATTERN" value="d9.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -64,39 +59,23 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MyLikedList0" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fe86672b-2de7-4fa7-acd8-223d08e422a3" name="Changes" comment="" />
-      <created>1745222597889</created>
+      <changelist id="402b89eb-83c5-473f-8029-9b17ffc6a4b2" name="Changes" comment="" />
+      <created>1746608918515</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1745222597889</updated>
-      <workItem from="1745222599341" duration="740000" />
-      <workItem from="1745818905287" duration="2846000" />
+      <updated>1746608918515</updated>
+      <workItem from="1746608919664" duration="984000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="0426 - 7주차 과제 (move, resize 구현)" />
-    <option name="LAST_COMMIT_MESSAGE" value="0426 - 7주차 과제 (move, resize 구현)" />
   </component>
 </project>

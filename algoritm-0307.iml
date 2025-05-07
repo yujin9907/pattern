@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$USER_HOME$/UnSync/workspace/algoritm-0307/out/production/algoritm-0307" />
+    <exclude-output />
+    <content url="file://$USER_HOME$/UnSync/workspace/algoritm-0307">
+      <sourceFolder url="file://$USER_HOME$/UnSync/workspace/algoritm-0307/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
