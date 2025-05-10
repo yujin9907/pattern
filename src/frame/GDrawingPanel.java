@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.lang.reflect.InvocationTargetException;
+import java.io.Serial;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -14,11 +14,13 @@ import javax.swing.JPanel;
 import frame.GShapeToolBar.EShapeTool;
 import shapes.GShape;
 import transformers.GDrawer;
+import transformers.GMover;
 import transformers.GTransformer;
 
 public class GDrawingPanel extends JPanel {
 
 
+    @Serial
     private static final long serialVersionUID = 1L;
     // 드로잉 상태
     private Vector<GShape> shapes;
@@ -27,6 +29,22 @@ public class GDrawingPanel extends JPanel {
     private EShapeTool eShapeTool;
     private EDrawingState eDrawingState;
     private GShape currentShape;
+    private GShape selectedShape;
+
+
+    public GDrawingPanel() {
+        this.setBackground(Color.WHITE);
+
+        MouseEventHandler mouseHandler = new MouseEventHandler();
+        this.addMouseListener(mouseHandler);
+        this.addMouseMotionListener(mouseHandler);
+
+        this.currentShape = null; // default (명시적으로)
+        this.selectedShape = null;
+        this.shapes = new Vector<GShape>();
+        this.eShapeTool = null;
+        this.eDrawingState = EDrawingState.eIdle;
+    }
 
 
     public enum EDrawingState {
@@ -36,10 +54,6 @@ public class GDrawingPanel extends JPanel {
     }
 
 
-    public enum EDrawingType {
-        e2P,
-        eNP
-    }
 
     public void setEShapeType(EShapeTool eShapeTool) {
         this.eShapeTool = eShapeTool;
@@ -65,78 +79,94 @@ public class GDrawingPanel extends JPanel {
         }
     }
 
-
-    // 2 Point 의 경우
-    private void startDrawing(int x, int y) {
-        // TODO (예외처리 newShape() 안으로 옮기기)
-        try {
-            currentShape = eShapeTool.newShape();
-            this.shapes.add(currentShape);
-            transformer = new GDrawer(currentShape);
-            transformer.start((Graphics2D) getGraphics(), x, y);
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException
-                 | IllegalAccessException e1) {
-            e1.printStackTrace();
+    private GShape onShape(int x, int y) {
+        for (GShape g : shapes) {
+            if (g.contains(x, y)) {
+                return g;
+            }
         }
+        return null;
     }
 
-    private void keepDrawing(int x, int y) {
+    // TODO (예외처리 newShape() 안으로 옮기기, 아니면 처리하기)
+    private void startTransform(int x, int y) throws Exception {
+        currentShape = eShapeTool.newShape();
+        this.shapes.add(currentShape);
+
+        if (this.eShapeTool == EShapeTool.eSelect) {
+            this.selectedShape = onShape(x, y);
+            if (selectedShape == null) {
+                this.transformer = new GDrawer(this.currentShape); // 현재 (그려지기전) 도형
+            } else {
+                this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
+            }
+        } else {
+            transformer = new GDrawer(currentShape);
+        }
+
+        transformer.start((Graphics2D) getGraphics(), x, y);
+    }
+
+    private void keepTransform(int x, int y) {
         transformer.drag((Graphics2D) getGraphics(), x, y);
         this.repaint();
     }
 
-    private void finishDrawing(int x, int y) {
+    private void finishTransform(int x, int y) {
         transformer.finish((Graphics2D) getGraphics(), x, y);
+
+        if (this.eShapeTool == EShapeTool.eSelect) {
+            this.shapes.remove(this.currentShape);
+        }
+        this.repaint();
     }
 
     private void addPoint(int x, int y) {
         transformer.addPoint((Graphics2D) getGraphics(), x, y);
     }
 
-    public GDrawingPanel() {
-        this.setBackground(Color.WHITE);
-
-        MouseEventHandler mouseHandler = new MouseEventHandler();
-        this.addMouseListener(mouseHandler);
-        this.addMouseMotionListener(mouseHandler);
-
-        this.shapes = new Vector<GShape>();
-        this.eShapeTool = null;
-        this.eDrawingState = EDrawingState.eIdle;
-    }
 
 
     private class MouseEventHandler implements MouseListener, MouseMotionListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getClickCount() == 1) {
-                this.mouse1Click(e);
-            } else if (e.getClickCount() == 2) {
-                this.mouse2Click(e);
+            try {
+                if (e.getClickCount() == 1) {
+                    this.mouse1Click(e);
+                } else if (e.getClickCount() == 2) {
+                    this.mouse2Click(e);
+                }
+            } catch (Exception e1) {
+                System.out.println("에러임 어디서부터인지 ㅅㄱ");
             }
         }
 
-        private void mouse1Click(MouseEvent e) {
+        private void mouse1Click(MouseEvent e) throws Exception {
+            // 안 그리는 상태
             if (eDrawingState == EDrawingState.eIdle) {
-                // constraint : set Transformer (locate, scale, ... 구분하기 위함)
-                if (eShapeTool.getDrawingType() == EDrawingType.e2P) {
-                    startDrawing(e.getX(), e.getY());
+                // 점 두개인 경우
+                if (eShapeTool.getDrawingType() == GShape.EPoints.e2P) { // constraint : set Transformer (locate, scale, ... 구분하기 위함)
+                    // 선택인 경우
+                    startTransform(e.getX(), e.getY());
                     eDrawingState = EDrawingState.e2P;
-                } else if (eShapeTool.getDrawingType() == EDrawingType.eNP) {
-                    startDrawing(e.getX(), e.getY());
+                    // 점 n개인 경우
+                } else if (eShapeTool.getDrawingType() == GShape.EPoints.eNP) {
+                    startTransform(e.getX(), e.getY());
                     eDrawingState = EDrawingState.eNP;
                 }
+                // 그리는 상태 - 점 2개(끝)
             } else if (eDrawingState == EDrawingState.e2P) {
-                finishDrawing(e.getX(), e.getY());
+                finishTransform(e.getX(), e.getY());
                 eDrawingState = EDrawingState.eIdle;
+                // 그리는 상태 - 점 n개(점추가)
             } else if (eDrawingState == EDrawingState.eNP) {
                 addPoint(e.getX(), e.getY());
             }
         }
 
         private void mouse2Click(MouseEvent e) {
-            if (eDrawingState == EDrawingState.e2P) {
-                finishDrawing(e.getX(), e.getY());
+            if (eDrawingState == EDrawingState.eNP) {
+                finishTransform(e.getX(), e.getY());
                 eDrawingState = EDrawingState.eIdle;
             }
         }
@@ -144,22 +174,19 @@ public class GDrawingPanel extends JPanel {
         @Override
         public void mouseMoved(MouseEvent e) {
             if (eDrawingState == EDrawingState.e2P) {
-                keepDrawing(e.getX(), e.getY());
+                keepTransform(e.getX(), e.getY());
             } else if (eDrawingState == EDrawingState.eNP) {
-                keepDrawing(e.getX(), e.getY());
+                keepTransform(e.getX(), e.getY());
             }
         }
-
 
         @Override
         public void mousePressed(MouseEvent e) {
         }
 
-
         @Override
         public void mouseDragged(MouseEvent e) {
         }
-
 
         @Override
         public void mouseReleased(MouseEvent e) {

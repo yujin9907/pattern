@@ -30,9 +30,26 @@ public class GRectangle extends GShape {
 		
 		this.rectangle.setFrame(ox, oy, w, h); 
 	}
-
 	@Override
 	public void addPoint(int x, int y) {
 
+	}
+
+	private int px, py;
+	@Override
+	public void movePoint(int x, int y) {
+		int dx = x - px;
+		int dy = x - py;
+
+		this.rectangle.setFrame(rectangle.getX()+dx, rectangle.getY()+dy, rectangle.getWidth(), rectangle.getHeight());
+
+		this.px = x;
+		this.py = y;
+	}
+
+	@Override
+	public void setMovePoint(int x, int y) {
+		this.px = x;
+		this.py = y;
 	}
 }
