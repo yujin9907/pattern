@@ -4,17 +4,23 @@ import java.awt.Graphics2D;
 import java.awt.Shape;
 
 
-// 인..
 
-public class GShape {
-	protected Shape shape;
+public abstract class GShape {
+	private Shape shape;
 
-	public GShape() {}
+	public GShape(Shape shape) {
+		this.shape = shape;
+	}
+
+	protected Shape getShape() {
+		return shape;
+	}
 
 	public void draw(Graphics2D graphics2d) {
 		graphics2d.draw(shape);
 	}
 
-//	public void move() {}
-//	public void resize() {}
+	public abstract void setPoint(int x, int y);
+	public abstract void addPoint(int x, int y);
+	public abstract void dragPoint(int x, int y);
 }

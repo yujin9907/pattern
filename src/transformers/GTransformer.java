@@ -27,13 +27,12 @@ public abstract class GTransformer {
 		this.gShape = gShape;
 	}
 
-	// 초기화
 	public abstract void start(Graphics2D graphis2D, int x, int y);
-
 
 	public abstract void drag(Graphics2D graphis2D, int x, int y) ;
 
-
 	public abstract void finish(Graphics2D graphis2D, int x, int y) ;
+
+	public abstract void addPoint(Graphics2D graphis2D, int x, int y) ;
 
 }

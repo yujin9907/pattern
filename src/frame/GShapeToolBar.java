@@ -9,6 +9,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JToolBar;
 
 import frame.GDrawingPanel.EDrawingType;
+import shapes.GPolygon;
 import shapes.GRectangle;
 import shapes.GShape;
 
@@ -16,14 +17,13 @@ public class GShapeToolBar extends JToolBar {
 	
 	private EShapeTool eShapeTool;
 	
-	public enum EShapeTool { // 툴바에 넣을지 드로잉판넬에 넣을지 아주 고민해봐야 함
-		// enum : 상수, 심볼(값), 순서(어래이라서)을 모두 포함하고 있음
+	public enum EShapeTool {
 		// 상수 코드에다 쓰지말고 나중에 파일 따로 빼라 (constant 나 resource 로)
 		eSelect("select", EDrawingType.e2P, GRectangle.class),
 		eRectangle("rectangle", EDrawingType.e2P, GRectangle.class),
 		eEllipse("ellipse", EDrawingType.e2P, GRectangle.class),
 		eLine("line", EDrawingType.e2P, GRectangle.class),
-		ePolygon("polygon", EDrawingType.eNP, GRectangle.class);
+		ePolygon("polygon", EDrawingType.eNP, GPolygon.class);
 
 		private String name;
 		private EDrawingType drawingType;
