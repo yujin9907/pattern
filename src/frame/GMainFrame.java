@@ -24,14 +24,14 @@ public class GMainFrame extends JFrame {
 		
 		// associated attributes: 맨 마지막에 실행돼야 하는 로직
 		this.setVisible(true);
-		
+
+		// init
 		this.gMenubar.initialize();
 		this.gToolbar.initialize();
 		this.gDrawingPanel.initialize();
 	}
 	
 
-	// 자식을 만들 때 1. 자식을 만듦 2. new 인스턴스화 3. add
 	public GMainFrame() {
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // 창 닫을 때 프로그램 종료
