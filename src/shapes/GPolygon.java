@@ -40,7 +40,7 @@ public class GPolygon extends GShape {
 	@Override
 	public void movePoint(int x, int y) {
 		int dx = x - px;
-		int dy = x - py;
+		int dy = y - py;
 
 		for (int i=0; i<this.polygon.npoints; i++) {
 			this.polygon.xpoints[i] += dx;

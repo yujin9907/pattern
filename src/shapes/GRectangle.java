@@ -39,7 +39,7 @@ public class GRectangle extends GShape {
 	@Override
 	public void movePoint(int x, int y) {
 		int dx = x - px;
-		int dy = x - py;
+		int dy = y - py;
 
 		this.rectangle.setFrame(rectangle.getX()+dx, rectangle.getY()+dy, rectangle.getWidth(), rectangle.getHeight());
 
