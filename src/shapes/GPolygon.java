@@ -35,27 +35,27 @@ public class GPolygon extends GShape {
 	}
 
 
-	// TODO  이런 코드는 원래 다 transform 에 있어야 함 추후 변경할 것
-	private int px, py;
-	@Override
-	public void movePoint(int x, int y) {
-		int dx = x - px;
-		int dy = y - py;
-
-		for (int i=0; i<this.polygon.npoints; i++) {
-			this.polygon.xpoints[i] += dx;
-			this.polygon.ypoints[i] += dy;
-		}
-
-		this.px = x;
-		this.py = y;
-	}
-
-	@Override
-	public void setMovePoint(int x, int y) {
-
-		this.px = x;
-		this.py = y;
-	}
+//	// TODO  이런 코드는 원래 다 transform 에 있어야 함 추후 변경할 것
+//	private int px, py;
+//	@Override
+//	public void movePoint(int x, int y) {
+//		int dx = x - px;
+//		int dy = y - py;
+//
+//		for (int i=0; i<this.polygon.npoints; i++) {
+//			this.polygon.xpoints[i] += dx;
+//			this.polygon.ypoints[i] += dy;
+//		}
+//
+//		this.px = x;
+//		this.py = y;
+//	}
+//
+//	@Override
+//	public void setMovePoint(int x, int y) {
+//
+//		this.px = x;
+//		this.py = y;
+//	}
 
 }

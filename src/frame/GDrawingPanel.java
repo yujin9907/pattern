@@ -1,8 +1,6 @@
 package frame;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -112,8 +110,12 @@ public class GDrawingPanel extends JPanel {
         this.repaint();
     }
 
+
+
     private void finishTransform(int x, int y) {
         transformer.finish((Graphics2D) getGraphics(), x, y);
+//        this.currentShape.setSelected(true);
+        selectedShape(this.currentShape);
 
         if (this.eShapeTool == EShapeTool.eSelect) {
             this.shapes.remove(this.currentShape);
@@ -121,8 +123,27 @@ public class GDrawingPanel extends JPanel {
         this.repaint();
     }
 
+    // 현재빼고 다 선택 취소
+    private void selectedShape(GShape gShape) {
+        for (GShape s : this.shapes) {
+            s.setSelected(false);
+        }
+        this.currentShape.setSelected(true);
+    }
+
     private void addPoint(int x, int y) {
         transformer.addPoint((Graphics2D) getGraphics(), x, y);
+    }
+
+    private void changeCursor(int x, int y) {
+        this.selectedShape = onShape(x, y);
+
+        if (this.selectedShape == null) {
+            this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            GShape.EAnchor eAnchor = this.selectedShape.getESelectedAnchor();
+            this.setCursor(eAnchor.getCursor());
+        }
     }
 
 
@@ -141,6 +162,7 @@ public class GDrawingPanel extends JPanel {
             }
         }
 
+        // TODO : 클릭하면 하나 선택되게 니네드리 알아서 해라...
         private void mouse1Click(MouseEvent e) throws Exception {
             // 안 그리는 상태
             if (eDrawingState == EDrawingState.eIdle) {
@@ -177,6 +199,8 @@ public class GDrawingPanel extends JPanel {
                 keepTransform(e.getX(), e.getY());
             } else if (eDrawingState == EDrawingState.eNP) {
                 keepTransform(e.getX(), e.getY());
+            } else if (eDrawingState == EDrawingState.eIdle) { // 그냥 else 라고 해도 되는데, 명시적으로
+                changeCursor(e.getX(), e.getY());
             }
         }
 
