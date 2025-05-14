@@ -172,5 +172,26 @@ public abstract class GShape {
 		}
 	}
 
-	public abstract void resize(int dx, int dy);
+//	public abstract void resize(int dx, int dy);
+
+	public void resize(int dx, int dy) {
+		Rectangle bounds = this.shape.getBounds();
+
+		// 기존 크기가 0인 경우 나눗셈 방지
+		double originalWidth = bounds.getWidth();
+		double originalHeight = bounds.getHeight();
+
+		if (originalWidth == 0 || originalHeight == 0) return;
+
+		// 비율 계산
+		double sx = (originalWidth + dx) / originalWidth;
+		double sy = (originalHeight + dy) / originalHeight;
+
+		// 중심점 기준으로 스케일
+		AffineTransform transform = new AffineTransform();
+		transform.translate(bounds.getX(), bounds.getY());
+		transform.scale(sx, sy);
+		transform.translate(-bounds.getX(), -bounds.getY());
+
+		this.affineTransform.concatenate(transform);	}
 }

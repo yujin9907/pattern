@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="0512 - 11주차 앵커, affine transform">
-      <change beforePath="$PROJECT_DIR$/.idea/misc 2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules 2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs 2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace 2.xml" beforeDir="false" />
+    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="                0514 - 리사이즈 사각형">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GPolygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +81,7 @@
       <workItem from="1746858488935" duration="1868000" />
       <workItem from="1746874570219" duration="6301000" />
       <workItem from="1746884962015" duration="2073000" />
-      <workItem from="1747202725208" duration="6790000" />
+      <workItem from="1747202725208" duration="7578000" />
     </task>
     <task id="LOCAL-00001" summary="0510 - 주석정리">
       <option name="closed" value="true" />
@@ -113,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747039511475</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="0514 - 리사이즈 사각형">
+      <option name="closed" value="true" />
+      <created>1747210358059</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747210358059</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +148,7 @@
     <MESSAGE value="0510 - 주석정리" />
     <MESSAGE value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
     <MESSAGE value="0512 - 11주차 앵커, affine transform" />
-    <option name="LAST_COMMIT_MESSAGE" value="0512 - 11주차 앵커, affine transform" />
+    <MESSAGE value="0514 - 리사이즈 사각형" />
+    <option name="LAST_COMMIT_MESSAGE" value="0514 - 리사이즈 사각형" />
   </component>
 </project>

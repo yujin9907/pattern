@@ -29,10 +29,10 @@ public class GPolygon extends GShape {
 		this.polygon.ypoints[this.polygon.npoints-1] = y;
 	}
 
-	@Override
-	public void resize(int dx, int dy) {
-
-	}
+//	@Override
+//	public void resize(int dx, int dy) {
+//
+//	}
 
 	@Override
 	public void addPoint(int x, int y) {

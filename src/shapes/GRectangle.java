@@ -32,11 +32,11 @@ public class GRectangle extends GShape {
 
 	}
 
-	@Override
-	public void resize(int dx, int dy) {
-		this.rectangle.setFrame(this.rectangle.getX(), this.rectangle.getY(),
-				this.rectangle.getWidth() + dx, this.rectangle.getHeight() + dy);
-
-	}
+//	@Override
+//	public void resize(int dx, int dy) {
+//		this.rectangle.setFrame(this.rectangle.getX(), this.rectangle.getY(),
+//				this.rectangle.getWidth() + dx, this.rectangle.getHeight() + dy);
+//
+//	}
 
 }
