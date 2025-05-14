@@ -2,11 +2,7 @@
 package shapes;
 
 
-
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
-import java.awt.geom.Rectangle2D.Float;
 
 public class GRectangle extends GShape {
 
@@ -36,5 +32,11 @@ public class GRectangle extends GShape {
 
 	}
 
+	@Override
+	public void resize(int dx, int dy) {
+		this.rectangle.setFrame(this.rectangle.getX(), this.rectangle.getY(),
+				this.rectangle.getWidth() + dx, this.rectangle.getHeight() + dy);
+
+	}
 
 }

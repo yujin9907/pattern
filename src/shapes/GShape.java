@@ -121,6 +121,7 @@ public abstract class GShape {
 		}
 	}
 
+
 	// anchor는 shape 이 선택되었는지
 	public boolean contains(int x, int y) {
 		// 앵커 선택
@@ -128,6 +129,11 @@ public abstract class GShape {
 			for (int i=0; i<this.anchors.length; i++) {
 				if (anchors[i].contains(x, y)) {
 					this.eSelectedAnchor = EAnchor.values()[i];
+
+					if (this.shape.getBounds().getMaxY() < anchors[i].getMinY()) {
+						this.eSelectedAnchor = EAnchor.eRR; // lotate
+					}
+
 					return true;
 				}
 			}
@@ -159,6 +165,12 @@ public abstract class GShape {
 	}
 
 	public void translate(int tx, int ty) {
-		this.affineTransform.translate(tx, ty);
+		if (eSelectedAnchor != EAnchor.eRR) {
+			resize(tx, ty);
+		} else {
+			this.affineTransform.translate(tx, ty);
+		}
 	}
+
+	public abstract void resize(int dx, int dy);
 }

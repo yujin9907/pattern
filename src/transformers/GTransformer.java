@@ -35,4 +35,6 @@ public abstract class GTransformer {
 
 	public abstract void addPoint(Graphics2D graphis2D, int x, int y) ;
 
+	
+
 }

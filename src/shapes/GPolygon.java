@@ -30,6 +30,11 @@ public class GPolygon extends GShape {
 	}
 
 	@Override
+	public void resize(int dx, int dy) {
+
+	}
+
+	@Override
 	public void addPoint(int x, int y) {
 		this.polygon.addPoint(x, y);
 	}

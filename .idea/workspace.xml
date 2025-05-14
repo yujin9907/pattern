@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="0510 - 10주차 리팩토링 및 폴리곤 추가">
-      <change afterPath="$PROJECT_DIR$/src/transformers/GMover.java" afterDir="false" />
+    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="0512 - 11주차 앵커, affine transform">
+      <change beforePath="$PROJECT_DIR$/.idea/misc 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs 2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace 2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GPolygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transformers/GTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GTransformer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +34,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "task-11",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/heo/Desktop/univ/패턴중심사고와프로그래밍/pattern-workspace",
     "node.js.detected.package.eslint": "true",
@@ -84,6 +87,7 @@
       <workItem from="1746858488935" duration="1868000" />
       <workItem from="1746874570219" duration="6301000" />
       <workItem from="1746884962015" duration="2073000" />
+      <workItem from="1747202725208" duration="6790000" />
     </task>
     <task id="LOCAL-00001" summary="0510 - 주석정리">
       <option name="closed" value="true" />
@@ -101,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746877737807</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="0512 - 11주차 앵커, affine transform">
+      <option name="closed" value="true" />
+      <created>1747039511475</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747039511475</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,22 +145,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0510 - 주석정리" />
     <MESSAGE value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frame/GDrawingPanel.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frame/GDrawingPanel.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="0512 - 11주차 앵커, affine transform" />
+    <option name="LAST_COMMIT_MESSAGE" value="0512 - 11주차 앵커, affine transform" />
   </component>
 </project>
