@@ -11,6 +11,9 @@ public class GMover extends GTransformer {
 	private int px, py;
 
 
+	public GShape getShape() {
+		return shape;
+	}
 
 	public GMover(GShape shape) {
 		super(shape);
@@ -19,23 +22,33 @@ public class GMover extends GTransformer {
 
 	@Override
 	public void start(Graphics2D graphis2D, int x, int y) {
-		this.px = x;
-		this.py = y;
+		if (shape.isSelected()) {
+			this.px = x;
+			this.py = y;
+		} else {
+			this.shape.drawAnchor(graphis2D);
+		}
 	}
 
 	@Override
 	public void drag(Graphics2D graphis2D, int x, int y) {
+		if (!this.shape.isSelected()) return;
+
 		int dx = x - px;
 		int dy = y - py;
 
-		this.shape.translate(dx, dy);
+		this.shape.translate(dx, dy, graphis2D);
 
 		this.px = x;
 		this.py = y;
 	}
 
 	@Override
-	public void finish(Graphics2D graphis2D, int x, int y) {}
+	public void finish(Graphics2D graphis2D, int x, int y) {
+		if (!this.shape.isSelected()) {
+			this.shape.setSelected(true);
+		}
+	}
 
 	@Override
 	public void addPoint(Graphics2D graphis2D, int x, int y) {

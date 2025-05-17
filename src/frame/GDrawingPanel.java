@@ -114,12 +114,12 @@ public class GDrawingPanel extends JPanel {
 
     private void finishTransform(int x, int y) {
         transformer.finish((Graphics2D) getGraphics(), x, y);
-//        this.currentShape.setSelected(true);
         selectedShape(this.currentShape);
 
         if (this.eShapeTool == EShapeTool.eSelect) {
             this.shapes.remove(this.currentShape);
         }
+
         this.repaint();
     }
 
