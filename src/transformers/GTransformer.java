@@ -15,6 +15,7 @@ package transformers;
 
 import java.awt.Graphics2D;
 
+import frame.GDrawingPanel;
 import shapes.GRectangle;
 import shapes.GShape;
 
@@ -27,7 +28,7 @@ public abstract class GTransformer {
 		this.gShape = gShape;
 	}
 
-	public abstract void start(Graphics2D graphis2D, int x, int y);
+	public abstract boolean start(Graphics2D graphis2D, int x, int y);
 
 	public abstract void drag(Graphics2D graphis2D, int x, int y) ;
 

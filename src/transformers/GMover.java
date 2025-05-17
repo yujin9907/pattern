@@ -18,21 +18,26 @@ public class GMover extends GTransformer {
 	public GMover(GShape shape) {
 		super(shape);
 		this.shape = shape;
+		this.px = -1;
+		this.py = -1;
 	}
 
 	@Override
-	public void start(Graphics2D graphis2D, int x, int y) {
+	public boolean start(Graphics2D graphis2D, int x, int y) {
 		if (shape.isSelected()) {
 			this.px = x;
 			this.py = y;
+			return true;
 		} else {
 			this.shape.drawAnchor(graphis2D);
+			this.shape.setSelected(true);
+			return false;
 		}
 	}
 
 	@Override
 	public void drag(Graphics2D graphis2D, int x, int y) {
-		if (!this.shape.isSelected()) return;
+		if (this.px == -1 && this.py == -1) return;
 
 		int dx = x - px;
 		int dy = y - py;
@@ -45,9 +50,6 @@ public class GMover extends GTransformer {
 
 	@Override
 	public void finish(Graphics2D graphis2D, int x, int y) {
-		if (!this.shape.isSelected()) {
-			this.shape.setSelected(true);
-		}
 	}
 
 	@Override

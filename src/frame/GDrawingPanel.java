@@ -87,7 +87,7 @@ public class GDrawingPanel extends JPanel {
     }
 
     // TODO (예외처리 newShape() 안으로 옮기기, 아니면 처리하기)
-    private void startTransform(int x, int y) throws Exception {
+    private boolean startTransform(int x, int y) throws Exception {
         currentShape = eShapeTool.newShape();
         this.shapes.add(currentShape);
 
@@ -102,7 +102,7 @@ public class GDrawingPanel extends JPanel {
             transformer = new GDrawer(currentShape);
         }
 
-        transformer.start((Graphics2D) getGraphics(), x, y);
+        return transformer.start((Graphics2D) getGraphics(), x, y);
     }
 
     private void keepTransform(int x, int y) {
@@ -169,12 +169,19 @@ public class GDrawingPanel extends JPanel {
                 // 점 두개인 경우
                 if (eShapeTool.getDrawingType() == GShape.EPoints.e2P) { // constraint : set Transformer (locate, scale, ... 구분하기 위함)
                     // 선택인 경우
-                    startTransform(e.getX(), e.getY());
-                    eDrawingState = EDrawingState.e2P;
+                    if (startTransform(e.getX(), e.getY())) {
+                        eDrawingState = EDrawingState.e2P;
+                    } else {
+                        eDrawingState = EDrawingState.eIdle;
+                    }
+
                     // 점 n개인 경우
                 } else if (eShapeTool.getDrawingType() == GShape.EPoints.eNP) {
-                    startTransform(e.getX(), e.getY());
-                    eDrawingState = EDrawingState.eNP;
+                    if (startTransform(e.getX(), e.getY())) {
+                        eDrawingState = EDrawingState.eNP;
+                    } else {
+                        eDrawingState = EDrawingState.eIdle;
+                    }
                 }
                 // 그리는 상태 - 점 2개(끝)
             } else if (eDrawingState == EDrawingState.e2P) {

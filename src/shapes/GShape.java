@@ -211,25 +211,108 @@ public abstract class GShape {
         drawAnchor(graphics2D);
     }
 
+//    public void resize(int dx, int dy) {
+//        Rectangle bounds = this.shape.getBounds();
+//
+//        // 기존 크기가 0인 경우 나눗셈 방지
+//        double originalWidth = bounds.getWidth();
+//        double originalHeight = bounds.getHeight();
+//
+//        if (originalWidth == 0 || originalHeight == 0) return;
+//
+//        // 비율 계산
+//        double sx = (originalWidth + dx) / originalWidth;
+//        double sy = (originalHeight + dy) / originalHeight;
+//
+//        // 중심점 기준으로 스케일
+//        AffineTransform transform = new AffineTransform();
+//        transform.translate(bounds.getX(), bounds.getY());
+//        transform.scale(sx, sy);
+//        transform.translate(-bounds.getX(), -bounds.getY());
+//
+//        this.affineTransform.concatenate(transform);
+//    }
+
     public void resize(int dx, int dy) {
         Rectangle bounds = this.shape.getBounds();
 
-        // 기존 크기가 0인 경우 나눗셈 방지
-        double originalWidth = bounds.getWidth();
-        double originalHeight = bounds.getHeight();
+        double w = bounds.getWidth();
+        double h = bounds.getHeight();
 
-        if (originalWidth == 0 || originalHeight == 0) return;
+        if (w == 0 || h == 0) return;
 
-        // 비율 계산
-        double sx = (originalWidth + dx) / originalWidth;
-        double sy = (originalHeight + dy) / originalHeight;
+        double sx = 1.0;
+        double sy = 1.0;
+        double pivotX = bounds.getX();
+        double pivotY = bounds.getY();
 
-        // 중심점 기준으로 스케일
+        // 앵커 기준점 및 축소/확대 방향 설정
+        switch (this.eSelectedAnchor) {
+            case eSE:
+                sx = (w + dx) / w;
+                sy = (h + dy) / h;
+                pivotX = bounds.getX();
+                pivotY = bounds.getY();
+                break;
+
+            case eSW:
+                sx = (w - dx) / w;
+                sy = (h + dy) / h;
+                pivotX = bounds.getX() + w;
+                pivotY = bounds.getY();
+                break;
+
+            case eNE:
+                sx = (w + dx) / w;
+                sy = (h - dy) / h;
+                pivotX = bounds.getX();
+                pivotY = bounds.getY() + h;
+                break;
+
+            case eNW:
+                sx = (w - dx) / w;
+                sy = (h - dy) / h;
+                pivotX = bounds.getX() + w;
+                pivotY = bounds.getY() + h;
+                break;
+
+            case eEE:
+                sx = (w + dx) / w;
+                sy = 1.0;
+                pivotX = bounds.getX();
+                pivotY = bounds.getY();
+                break;
+
+            case eWW:
+                sx = (w - dx) / w;
+                sy = 1.0;
+                pivotX = bounds.getX() + w;
+                pivotY = bounds.getY();
+                break;
+
+            case eSS:
+                sx = 1.0;
+                sy = (h + dy) / h;
+                pivotX = bounds.getX();
+                pivotY = bounds.getY();
+                break;
+
+            case eNN:
+                sx = 1.0;
+                sy = (h - dy) / h;
+                pivotX = bounds.getX();
+                pivotY = bounds.getY() + h;
+                break;
+
+            default:
+                return; // 회전 등 무관 앵커
+        }
+
         AffineTransform transform = new AffineTransform();
-        transform.translate(bounds.getX(), bounds.getY());
-        transform.scale(sx, sy);
-        transform.translate(-bounds.getX(), -bounds.getY());
+        transform.translate(pivotX, pivotY);    // 기준점으로 이동
+        transform.scale(sx, sy);                // 확대/축소
+        transform.translate(-pivotX, -pivotY);  // 다시 원상복귀
 
-        this.affineTransform.concatenate(transform);
+        this.shape = transform.createTransformedShape(this.shape);  // 실제 shape에 적용
     }
 }
