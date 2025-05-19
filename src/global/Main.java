@@ -1,4 +1,6 @@
-package frame;
+package global;
+
+import frame.GMainFrame;
 
 public class Main {
 	

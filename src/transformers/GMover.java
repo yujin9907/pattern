@@ -28,7 +28,7 @@ public class GMover extends GTransformer {
 		int dx = x - px;
 		int dy = y - py;
 
-		this.shape.translate(dx, dy);
+		this.shape.getAffineTransform().translate(dx, dy);
 
 		this.px = x;
 		this.py = y;

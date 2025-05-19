@@ -13,6 +13,7 @@ import frame.GShapeToolBar.EShapeTool;
 import shapes.GShape;
 import transformers.GDrawer;
 import transformers.GMover;
+import transformers.GResizer;
 import transformers.GTransformer;
 
 public class GDrawingPanel extends JPanel {
@@ -50,7 +51,6 @@ public class GDrawingPanel extends JPanel {
         e2P,
         eNP
     }
-
 
 
     public void setEShapeType(EShapeTool eShapeTool) {
@@ -95,8 +95,12 @@ public class GDrawingPanel extends JPanel {
             this.selectedShape = onShape(x, y);
             if (selectedShape == null) {
                 this.transformer = new GDrawer(this.currentShape); // 현재 (그려지기전) 도형
-            } else {
+            } else if (this.selectedShape.getESelectedAnchor() == GShape.EAnchor.eMM) {
                 this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
+            } else if (this.selectedShape.getESelectedAnchor() == GShape.EAnchor.eRR){
+                this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
+            } else {
+                this.transformer = new GResizer(this.selectedShape); // 현재 (선택된) 도형
             }
         } else {
             transformer = new GDrawer(currentShape);
@@ -111,14 +115,19 @@ public class GDrawingPanel extends JPanel {
     }
 
 
-
     private void finishTransform(int x, int y) {
         transformer.finish((Graphics2D) getGraphics(), x, y);
-//        this.currentShape.setSelected(true);
         selectedShape(this.currentShape);
 
         if (this.eShapeTool == EShapeTool.eSelect) {
-            this.shapes.remove(this.currentShape);
+            this.shapes.removeLast();
+            for (GShape shape : this.shapes) {
+                if (this.currentShape.contains(shape)) {
+                    shape.setSelected(true);
+                } else {
+                    shape.setSelected(false);
+                }
+            }
         }
         this.repaint();
     }
@@ -136,6 +145,8 @@ public class GDrawingPanel extends JPanel {
     }
 
     private void changeCursor(int x, int y) {
+        if (this.eShapeTool != EShapeTool.eSelect) return;
+
         this.selectedShape = onShape(x, y);
 
         if (this.selectedShape == null) {
@@ -145,7 +156,6 @@ public class GDrawingPanel extends JPanel {
             this.setCursor(eAnchor.getCursor());
         }
     }
-
 
 
     private class MouseEventHandler implements MouseListener, MouseMotionListener {

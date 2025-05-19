@@ -40,7 +40,6 @@ public abstract class GShape {
 	private boolean bSelected;
 	private EAnchor eSelectedAnchor; // 선택된(contains) 앵커
 	private AffineTransform affineTransform;
-
 	 private Shape transformedAnchor;
 
 	public GShape(Shape shape) {
@@ -62,6 +61,18 @@ public abstract class GShape {
 	protected Shape getShape() {
 		return shape;
 	}
+
+	public AffineTransform getAffineTransform() {
+		return affineTransform;
+	}
+	public Rectangle getBounds() {
+		return this.shape.getBounds();
+	}
+	public Shape getTransformedShape() {
+		return this.affineTransform.createTransformedShape(this.shape);
+	}
+
+
 	public boolean isSelected() {
 		return this.bSelected;
 	}
@@ -143,6 +154,10 @@ public abstract class GShape {
 		// 아니면 false
 		return false;
 	}
+	public boolean contains(GShape shape) {
+		return this.shape.contains(shape.getShape().getBounds());
+	}
+
 
 	public abstract void setPoint(int x, int y);
 	public abstract void addPoint(int x, int y);
@@ -152,7 +167,4 @@ public abstract class GShape {
 	public abstract void movePoint(int x, int y);
 	public abstract void setMovePoint(int x, int y);
 
-	public void translate(int tx, int ty) {
-		this.affineTransform.translate(tx, ty);
-	}
 }

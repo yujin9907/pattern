@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="0519 - week12 도형이동 후 재이동 : 좌표값 업데이트가 아니라 transform 으로 계산 대상을 변경함">
+      <change afterPath="$PROJECT_DIR$/src/transformers/GResizer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transformers/GMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transformers/GMover.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746877737807</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="0519 - week12 도형이동 후 재이동 : 좌표값 업데이트가 아니라 transform 으로 계산 대상을 변경함">
+      <option name="closed" value="true" />
+      <created>1747636925228</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747636925228</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,20 +146,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0510 - 주석정리" />
     <MESSAGE value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="0519 - week12 도형이동 후 재이동 : 좌표값 업데이트가 아니라 transform 으로 계산 대상을 변경함" />
+    <option name="LAST_COMMIT_MESSAGE" value="0519 - week12 도형이동 후 재이동 : 좌표값 업데이트가 아니라 transform 으로 계산 대상을 변경함" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frame/GDrawingPanel.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/frame/GDrawingPanel.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/shapes/GShape.java</url>
+          <line>123</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
