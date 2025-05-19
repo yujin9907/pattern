@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="0510 - 10주차 리팩토링 및 폴리곤 추가">
-      <change afterPath="$PROJECT_DIR$/src/transformers/GMover.java" afterDir="false" />
+    <list default="true" id="0c43abf8-5123-48d9-87c5-30fe853b2737" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GShapeToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/GPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GPolygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/GRectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GRectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/GShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/GShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +27,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -133,7 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0510 - 주석정리" />
     <MESSAGE value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="0510 - 10주차 리팩토링 및 폴리곤 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

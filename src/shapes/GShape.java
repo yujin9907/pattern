@@ -41,7 +41,7 @@ public abstract class GShape {
 	private EAnchor eSelectedAnchor; // 선택된(contains) 앵커
 	private AffineTransform affineTransform;
 
-
+	 private Shape transformedAnchor;
 
 	public GShape(Shape shape) {
 		this.shape = shape;
@@ -112,11 +112,12 @@ public abstract class GShape {
 		if (bSelected) {
 			this.setAnchors();
 			for (int i=0; i<this.anchors.length; i++) {
+				Shape transformedAnchor = this.affineTransform.createTransformedShape(anchors[i]);
 				Color penColor = graphics2d.getColor();
 				graphics2d.setColor(graphics2d.getBackground());
-				graphics2d.fill(anchors[i]);
+				graphics2d.fill(transformedAnchor);
 				graphics2d.setColor(penColor); // 원위치
-				graphics2d.draw(anchors[i]);
+				graphics2d.draw(transformedAnchor);
 			}
 		}
 	}
@@ -126,14 +127,16 @@ public abstract class GShape {
 		// 앵커 선택
 		if (bSelected) {
 			for (int i=0; i<this.anchors.length; i++) {
-				if (anchors[i].contains(x, y)) {
+				Shape transformedAnchor = this.affineTransform.createTransformedShape(anchors[i]);
+				if (transformedAnchor.contains(x, y)) {
 					this.eSelectedAnchor = EAnchor.values()[i];
 					return true;
 				}
 			}
 		}
 		// 무브
-		if (this.shape.contains(x, y)) {
+		Shape transformedAnchor = this.affineTransform.createTransformedShape(shape);
+		if (transformedAnchor.contains(x, y)) {
 			this.eSelectedAnchor = EAnchor.eMM; // move
 			return true;
 		}
@@ -141,22 +144,13 @@ public abstract class GShape {
 		return false;
 	}
 
-	// TODO : 추후 resize, move 합칠거임
-
 	public abstract void setPoint(int x, int y);
 	public abstract void addPoint(int x, int y);
 	public abstract void dragPoint(int x, int y);
 
 
-//	public abstract void movePoint(int x, int y);
-//	public abstract void setMovePoint(int x, int y);
-	public void movePoint(int x, int y) {
-
-	}
-
-	public void setMovePoint(int x, int y) {
-
-	}
+	public abstract void movePoint(int x, int y);
+	public abstract void setMovePoint(int x, int y);
 
 	public void translate(int tx, int ty) {
 		this.affineTransform.translate(tx, ty);

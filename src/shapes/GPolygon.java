@@ -30,6 +30,16 @@ public class GPolygon extends GShape {
 	}
 
 	@Override
+	public void movePoint(int x, int y) {
+
+	}
+
+	@Override
+	public void setMovePoint(int x, int y) {
+
+	}
+
+	@Override
 	public void addPoint(int x, int y) {
 		this.polygon.addPoint(x, y);
 	}
