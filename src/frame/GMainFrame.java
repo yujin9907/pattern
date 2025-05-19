@@ -1,4 +1,6 @@
 package frame;
+import global.GConstants;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
@@ -40,9 +42,12 @@ public class GMainFrame extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
-		this.setLocation((int) (width*0.1), (int)(height*0.1));
-		this.setSize((int) (width*0.4), (int)(height*0.4));
-		
+//		this.setSize((int) (width*0.4), (int)(height*0.4));
+		this.setSize(GConstants.GMainFrame.w, GConstants.GMainFrame.h);
+//		this.setLocation((int) (width*0.1), (int)(height*0.1));
+		this.setLocation(GConstants.GMainFrame.x, GConstants.GMainFrame.y);
+
+
 		// component (부품)
 		LayoutManager layout = new BorderLayout();
 		this.setLayout(layout); 

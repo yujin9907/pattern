@@ -1,5 +1,7 @@
 package shapes;
 
+import global.GConstants;
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
@@ -13,38 +15,18 @@ public abstract class GShape {
 		eNP,
 	}
 
-	public enum EAnchor { // 8개
-		eNN(new Cursor(Cursor.N_RESIZE_CURSOR)), // 남북
-		eNE(new Cursor(Cursor.NE_RESIZE_CURSOR)), // 남서
-		eNW(new Cursor(Cursor.NW_RESIZE_CURSOR)),
-		eSS(new Cursor(Cursor.S_RESIZE_CURSOR)),
-		eSE(new Cursor(Cursor.SE_RESIZE_CURSOR)),
-		eSW(new Cursor(Cursor.SW_RESIZE_CURSOR)),
-		eEE(new Cursor(Cursor.E_RESIZE_CURSOR)), // 정동
-		eWW(new Cursor(Cursor.W_RESIZE_CURSOR)),
-		eRR(new Cursor(Cursor.HAND_CURSOR)), // TODO 추후 로테이트 커서 커스텀하기
-		eMM(new Cursor(Cursor.MOVE_CURSOR));
 
-		private Cursor cursor;
-		private EAnchor(Cursor cursor) {
-			this.cursor = cursor;
-		}
-
-		public Cursor getCursor() {
-			return cursor;
-		}
-	}
 
 	private Shape shape;
 	private Ellipse2D anchors[];
 	private boolean bSelected;
-	private EAnchor eSelectedAnchor; // 선택된(contains) 앵커
+	private GConstants.EAnchor eSelectedAnchor; // 선택된(contains) 앵커
 	private AffineTransform affineTransform;
 	 private Shape transformedAnchor;
 
 	public GShape(Shape shape) {
 		this.shape = shape;
-		this.anchors =  new Ellipse2D[EAnchor.values().length-1];
+		this.anchors =  new Ellipse2D[GConstants.EAnchor.values().length-1];
 		this.affineTransform = new AffineTransform();
 
 
@@ -79,7 +61,7 @@ public abstract class GShape {
 	public void setSelected(boolean bSelected) {
 		this.bSelected = bSelected;
 	}
-	public EAnchor getESelectedAnchor() {
+	public GConstants.EAnchor getESelectedAnchor() {
 		return eSelectedAnchor;
 	}
 
@@ -98,7 +80,7 @@ public abstract class GShape {
 
 		// 앵커의 좌표 그리기 (앵커 동그라미의 중심점)
 		for (int i=0; i<this.anchors.length; i++) {
-			switch (EAnchor.values()[i]) {
+			switch (GConstants.EAnchor.values()[i]) {
 				case eSS: cx = bx+bw/2; cy = by+bh; break;
 				case eSE: cx = bx+bw;   cy = by+bh; break;
 				case eSW: cx = bx;      cy = by+bh; break;
@@ -140,7 +122,7 @@ public abstract class GShape {
 			for (int i=0; i<this.anchors.length; i++) {
 				Shape transformedAnchor = this.affineTransform.createTransformedShape(anchors[i]);
 				if (transformedAnchor.contains(x, y)) {
-					this.eSelectedAnchor = EAnchor.values()[i];
+					this.eSelectedAnchor = GConstants.EAnchor.values()[i];
 					return true;
 				}
 			}
@@ -148,7 +130,7 @@ public abstract class GShape {
 		// 무브
 		Shape transformedAnchor = this.affineTransform.createTransformedShape(shape);
 		if (transformedAnchor.contains(x, y)) {
-			this.eSelectedAnchor = EAnchor.eMM; // move
+			this.eSelectedAnchor = GConstants.EAnchor.eMM; // move
 			return true;
 		}
 		// 아니면 false

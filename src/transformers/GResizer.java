@@ -1,5 +1,6 @@
 package transformers;
 
+import global.GConstants;
 import shapes.GShape;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ public class GResizer extends GTransformer {
     private Rectangle bounds;
     private int px, py;
     private int cx, cy;
-    GShape.EAnchor eResizedAnchor;
+    GConstants.EAnchor eResizedAnchor;
 
 
     public GResizer(GShape shape) {
@@ -25,15 +26,15 @@ public class GResizer extends GTransformer {
 
         Rectangle r = this.shape.getBounds();
 
-        GShape.EAnchor eSelectedAnchor = this.shape.getESelectedAnchor();
+        GConstants.EAnchor eSelectedAnchor = this.shape.getESelectedAnchor();
         switch (eSelectedAnchor) {
-            case eNW: eResizedAnchor = GShape.EAnchor.eSE; cx=r.x+r.width; cy = r.y+r.height; break;
-            case eWW: eResizedAnchor = GShape.EAnchor.eEE; cx=r.x+r.width; cy = r.y+r.height; break;
-            case eSW: eResizedAnchor = GShape.EAnchor.eNE; cx=r.x+r.width; cy = r.y; break;
-            case eSS: eResizedAnchor = GShape.EAnchor.eNW; cx=r.x+r.width/2; cy = r.y; break;
-            case eSE: eResizedAnchor = GShape.EAnchor.eNW; cx=r.x; cy = r.y; break;
-            case eEE: eResizedAnchor = GShape.EAnchor.eWW; cx=r.x; cy = r.y+r.height; break;
-            case eNN: eResizedAnchor = GShape.EAnchor.eWW; cx=r.x+r.width/2; cy = r.y+r.height; break;
+            case eNW: eResizedAnchor = GConstants.EAnchor.eSE; cx=r.x+r.width; cy = r.y+r.height; break;
+            case eWW: eResizedAnchor = GConstants.EAnchor.eEE; cx=r.x+r.width; cy = r.y+r.height; break;
+            case eSW: eResizedAnchor = GConstants.EAnchor.eNE; cx=r.x+r.width; cy = r.y; break;
+            case eSS: eResizedAnchor = GConstants.EAnchor.eNW; cx=r.x+r.width/2; cy = r.y; break;
+            case eSE: eResizedAnchor = GConstants.EAnchor.eNW; cx=r.x; cy = r.y; break;
+            case eEE: eResizedAnchor = GConstants.EAnchor.eWW; cx=r.x; cy = r.y+r.height; break;
+            case eNN: eResizedAnchor = GConstants.EAnchor.eWW; cx=r.x+r.width/2; cy = r.y+r.height; break;
             default: break;
         }
     }
@@ -46,7 +47,7 @@ public class GResizer extends GTransformer {
         double dy = 0;
 
         // TODO 마우스의 움직임 계산
-        GShape.EAnchor eSelectedAnchor = this.shape.getESelectedAnchor();
+        GConstants.EAnchor eSelectedAnchor = this.shape.getESelectedAnchor();
         switch (eResizedAnchor) {
             case eNW: break;
             case eWW: break;

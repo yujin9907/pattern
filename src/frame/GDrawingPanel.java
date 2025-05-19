@@ -1,20 +1,19 @@
 package frame;
 
+import global.GConstants;
+import shapes.GShape;
+import transformers.GDrawer;
+import transformers.GMover;
+import transformers.GResizer;
+import transformers.GTransformer;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.Serial;
 import java.util.Vector;
-
-import javax.swing.JPanel;
-
-import frame.GShapeToolBar.EShapeTool;
-import shapes.GShape;
-import transformers.GDrawer;
-import transformers.GMover;
-import transformers.GResizer;
-import transformers.GTransformer;
 
 public class GDrawingPanel extends JPanel {
 
@@ -25,7 +24,7 @@ public class GDrawingPanel extends JPanel {
     private Vector<GShape> shapes;
     private GTransformer transformer;
     // 제약조건
-    private EShapeTool eShapeTool;
+    private GConstants.EShapeTool eShapeTool;
     private EDrawingState eDrawingState;
     private GShape currentShape;
     private GShape selectedShape;
@@ -53,7 +52,7 @@ public class GDrawingPanel extends JPanel {
     }
 
 
-    public void setEShapeType(EShapeTool eShapeTool) {
+    public void setEShapeType(GConstants.EShapeTool eShapeTool) {
         this.eShapeTool = eShapeTool;
     }
 
@@ -91,13 +90,13 @@ public class GDrawingPanel extends JPanel {
         currentShape = eShapeTool.newShape();
         this.shapes.add(currentShape);
 
-        if (this.eShapeTool == EShapeTool.eSelect) {
+        if (this.eShapeTool == GConstants.EShapeTool.eSelect) {
             this.selectedShape = onShape(x, y);
             if (selectedShape == null) {
                 this.transformer = new GDrawer(this.currentShape); // 현재 (그려지기전) 도형
-            } else if (this.selectedShape.getESelectedAnchor() == GShape.EAnchor.eMM) {
+            } else if (this.selectedShape.getESelectedAnchor() == GConstants.EAnchor.eMM) {
                 this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
-            } else if (this.selectedShape.getESelectedAnchor() == GShape.EAnchor.eRR){
+            } else if (this.selectedShape.getESelectedAnchor() == GConstants.EAnchor.eRR){
                 this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
             } else {
                 this.transformer = new GResizer(this.selectedShape); // 현재 (선택된) 도형
@@ -119,7 +118,7 @@ public class GDrawingPanel extends JPanel {
         transformer.finish((Graphics2D) getGraphics(), x, y);
         selectedShape(this.currentShape);
 
-        if (this.eShapeTool == EShapeTool.eSelect) {
+        if (this.eShapeTool == GConstants.EShapeTool.eSelect) {
             this.shapes.removeLast();
             for (GShape shape : this.shapes) {
                 if (this.currentShape.contains(shape)) {
@@ -145,14 +144,14 @@ public class GDrawingPanel extends JPanel {
     }
 
     private void changeCursor(int x, int y) {
-        if (this.eShapeTool != EShapeTool.eSelect) return;
+        if (this.eShapeTool != GConstants.EShapeTool.eSelect) return;
 
         this.selectedShape = onShape(x, y);
 
         if (this.selectedShape == null) {
             this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         } else {
-            GShape.EAnchor eAnchor = this.selectedShape.getESelectedAnchor();
+            GConstants.EAnchor eAnchor = this.selectedShape.getESelectedAnchor();
             this.setCursor(eAnchor.getCursor());
         }
     }
