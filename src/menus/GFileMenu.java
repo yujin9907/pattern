@@ -1,33 +1,95 @@
 package menus;
 
+import frame.GDrawingPanel;
+import global.GConstants;
+import shapes.GShape;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Vector;
 
 public class GFileMenu extends JMenu {
 	
+	@Serial
 	private static final long serialVersionUID = 1L;
-	
-	private JMenuItem newItem;
-	private JMenuItem openItem;
-	private JMenuItem saveItem;
-	private JMenuItem saveAsItem;
-	private JMenuItem quitItem;
-	
-	
+	private GDrawingPanel drawingPanel;
+
 	public GFileMenu() {
 		super("File");
-		
-		this.newItem = new JMenuItem("New");
-		this.openItem = new JMenuItem("Open");
-		this.saveItem = new JMenuItem("Save");
-		this.saveAsItem = new JMenuItem("Save As");
-		this.quitItem = new JMenuItem("Quit");
 
-		this.add(this.newItem);
-		this.add(this.openItem);
-		this.add(this.saveItem);
-		this.add(this.saveAsItem);
-		this.add(this.quitItem);
+		ActionHandler actionHandler = new ActionHandler();
+		for (GConstants.EFileMenuItem item : GConstants.EFileMenuItem.values()) {
+			JMenuItem menuItem = new JMenuItem(item.getName());
+			menuItem.addActionListener(actionHandler);
+			menuItem.setActionCommand(item.name());
+			this.add(menuItem);
+		}
+	}
+	public void initialize() {
+
+	}
+	public void associate(GDrawingPanel drawingPanel) {
+		this.drawingPanel = drawingPanel;
 	}
 
+
+
+	public void newPanel() {
+		System.out.println("new");
+	}
+
+	public void open() {
+		System.out.println("open");
+
+	}
+
+	// TODO 5.26 try-catch 여기다가 넣어야 됨
+	// 강의자료 참고 [ 이 단계별로 강의자료에서 설명한 내용 이해 (헀으면 갠적으로 좋겟음)]
+	// 메모리 내 데이터를 파일에 써서 key-value 혇태로 object 를 serialize (어레이로 쭉 뽑아내는 것?) 해서 저장할 수 있도록 해주는 것
+	// 스트림을 연결하면 다른 일을 몬함. 그래서 또 다른 메모리에다가 쓰도록 함.
+	// dma? cpu가 프로세스 실행할 때 관여하지 않고 메모리가 전부 읽어온 후 처리해서 속도가 느려지지 않도록 함
+	public void save() throws IOException {
+		System.out.println("save");
+		Vector<GShape> shapes = this.drawingPanel.getShapes();
+
+		FileOutputStream fileOutputStream = new FileOutputStream("file");
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+		ObjectOutputStream objectOutputStream = new ObjectOutputStream(bufferedOutputStream);
+		objectOutputStream.writeObject(shapes);
+		objectOutputStream.close();
+	}
+
+	public void saveAs() {
+		System.out.println("save as");
+
+	}
+	public void print() {
+		System.out.println("print");
+
+	}
+	public void quit() {
+		System.out.println("quit");
+
+	}
+
+	public void invokeMethod(String name) {
+		try {
+			Method method = this.getClass().getMethod(name);
+			method.invoke(this);
+		} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+	private class ActionHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			GConstants.EFileMenuItem item = GConstants.EFileMenuItem.valueOf(e.getActionCommand());
+			invokeMethod(item.getMethodName());
+		}
+	}
 }

@@ -5,9 +5,10 @@ import global.GConstants;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
+import java.io.Serializable;
 
-
-public abstract class GShape {
+// TODO 5.26 저장을 위해 파일스트림으로 저장하기 위해 시리얼라이즈에이블 해야 함
+public abstract class GShape implements Serializable {
 	private final static int ANCHOR_W = 10;
 	private final static int ANCHOR_H = 10;
 	public enum EPoints {

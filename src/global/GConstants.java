@@ -67,4 +67,31 @@ public class GConstants {
             return classShape.getConstructor().newInstance();
         }
     }
+
+
+    // TODO 5.26 이거 mehtod name string 으로 하지 말고 .class 한 거 처럼 함수 이름으로 고쳐 써라
+    public enum EFileMenuItem {
+        eNew("새파일", "newPanel"),
+        eOpen("열기", "open"),
+        eSave("저장", "save"),
+        eSaveAs("다른 이름으로 저장", "saveAs"),
+        ePrint("프린트", "print"),
+        eQuit("종료", "quit");
+
+        private String name;
+        private String methodName;
+        EFileMenuItem(String name, String methodName) {
+            this.name = name;
+            this.methodName = methodName;
+        }
+
+        public String getMethodName() {
+            return methodName;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
 }

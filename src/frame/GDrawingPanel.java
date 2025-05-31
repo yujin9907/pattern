@@ -56,6 +56,13 @@ public class GDrawingPanel extends JPanel {
         this.eShapeTool = eShapeTool;
     }
 
+    public Vector<GShape> getShapes() {
+        return shapes;
+    }
+
+    public void setShapes(Vector<GShape> shapes) {
+        this.shapes = shapes;
+    }
 
     public void initialize() {
 
