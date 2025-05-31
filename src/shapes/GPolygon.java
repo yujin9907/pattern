@@ -21,7 +21,6 @@ public class GPolygon extends GShape {
 	// 폴리곤 시작은 2개의 점을 추가함
 	public void setPoint(int x, int y) {
 		this.polygon.addPoint(x, y);
-		this.polygon.addPoint(x, y);
 	}
 
 	public void dragPoint(int x, int y) {

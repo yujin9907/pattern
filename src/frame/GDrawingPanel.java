@@ -1,11 +1,9 @@
 package frame;
 
 import global.GConstants;
+import shapes.GGroup;
 import shapes.GShape;
-import transformers.GDrawer;
-import transformers.GMover;
-import transformers.GResizer;
-import transformers.GTransformer;
+import transformers.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -101,8 +99,12 @@ public class GDrawingPanel extends JPanel {
             this.selectedShape = onShape(x, y);
             if (selectedShape == null) {
                 this.transformer = new GDrawer(this.currentShape); // 현재 (그려지기전) 도형
-            } else {
+            } else if (this.selectedShape.getESelectedAnchor() == GConstants.EAnchor.eMM) {
                 this.transformer = new GMover(this.selectedShape); // 현재 (선택된) 도형
+            } else if (this.selectedShape.getESelectedAnchor() == GConstants.EAnchor.eRR) {
+                this.transformer = new GRotate(this.selectedShape); // 현재 (선택된) 도형
+            } else {
+                this.transformer = new GResizer(this.selectedShape); // 현재 (선택된) 도형
             }
         } else {
             transformer = new GDrawer(currentShape);
@@ -160,6 +162,34 @@ public class GDrawingPanel extends JPanel {
     }
 
 
+    public void groupingShapes() {
+        if (getSelectedCount() > 1) {
+            GGroup group = new GGroup();
+
+            for (GShape s : shapes) {
+                if (s.isSelected()) {
+                    group.add(s);
+                    this.shapes.remove(s);
+                }
+            }
+
+            this.shapes.add(group);
+        }
+    }
+
+    private int getSelectedCount() {
+        int cnt = 0;
+        if (shapes.isEmpty()) return cnt;
+
+        for (GShape s : shapes) {
+            if (s.isSelected()) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
+
     private class MouseEventHandler implements MouseListener, MouseMotionListener {
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -170,6 +200,7 @@ public class GDrawingPanel extends JPanel {
                     this.mouse2Click(e);
                 }
             } catch (Exception e1) {
+                e1.printStackTrace();
                 System.out.println("에러임 어디서부터인지 ㅅㄱ");
             }
         }

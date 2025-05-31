@@ -66,10 +66,17 @@ public abstract class GShape implements Serializable {
 		return eSelectedAnchor;
 	}
 
+
+
 	// method
+	public void translate(int x, int y) {
+		this.getAffineTransform().translate(x, y);
+	}
+
 	private void setAnchors() {
 		// 선택된 도형을 둘러싼 사각형
-		Rectangle bounds = this.shape.getBounds();
+		Rectangle bounds = this.getShape().getBounds();
+
 		// 앵커 동그라미 좌표
 		int bx = bounds.x;
 		int by = bounds.y;
