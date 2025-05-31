@@ -38,7 +38,7 @@ public class GMainFrame extends JFrame {
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // 창 닫을 때 프로그램 종료
 		
-		// attribute (속성) // 상수 사용 지양 
+		// attribute (속성) // 상수 사용 지양 // TODO
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;

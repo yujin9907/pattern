@@ -4,8 +4,7 @@ import frame.GDrawingPanel;
 import global.GConstants;
 import shapes.GShape;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -64,8 +63,22 @@ public class GFileMenu extends JMenu {
 		objectOutputStream.close();
 	}
 
-	public void saveAs() {
+	public void saveAs() throws IOException {
 		System.out.println("save as");
+		Vector<GShape> shapes = this.drawingPanel.getShapes();
+
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("파일 저장");
+
+		int userSelection = fileChooser.showSaveDialog(null);
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+			File fileToSave = fileChooser.getSelectedFile();
+
+			FileOutputStream fos = new FileOutputStream(fileToSave);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(shapes);
+			oos.close();
+		}
 
 	}
 	public void print() {
