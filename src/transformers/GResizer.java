@@ -20,7 +20,7 @@ public class GResizer extends GTransformer {
     }
 
     @Override
-    public void start(Graphics2D graphis2D, int x, int y) {
+    public boolean start(Graphics2D graphis2D, int x, int y) {
         this.px = x;
         this.py = y;
 
@@ -37,6 +37,8 @@ public class GResizer extends GTransformer {
             case eNN: eResizedAnchor = GConstants.EAnchor.eWW; cx=r.x+r.width/2; cy = r.y+r.height; break;
             default: break;
         }
+
+        return true;
     }
 
     // 이걸(그래픽스) 이해하려면, 선형대수부터 이해해야 된다

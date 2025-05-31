@@ -104,15 +104,18 @@ public abstract class GShape implements Serializable {
 
 		// draw Anchor
 		if (bSelected) {
-			this.setAnchors();
-			for (int i=0; i<this.anchors.length; i++) {
-				Shape transformedAnchor = this.affineTransform.createTransformedShape(anchors[i]);
-				Color penColor = graphics2d.getColor();
-				graphics2d.setColor(graphics2d.getBackground());
-				graphics2d.fill(transformedAnchor);
-				graphics2d.setColor(penColor); // 원위치
-				graphics2d.draw(transformedAnchor);
-			}
+			drawAnchor(graphics2d);
+		}
+	}
+
+	public void drawAnchor(Graphics2D graphics2d) {
+		this.setAnchors();
+		for (int i = 0; i < this.anchors.length; i++) {
+			Color penColor = graphics2d.getColor();
+			graphics2d.setColor(graphics2d.getBackground());
+			graphics2d.fill(anchors[i]);
+			graphics2d.setColor(penColor); // 원위치
+			graphics2d.draw(anchors[i]);
 		}
 	}
 
@@ -149,5 +152,101 @@ public abstract class GShape implements Serializable {
 
 	public abstract void movePoint(int x, int y);
 	public abstract void setMovePoint(int x, int y);
+
+	public void translate(int tx, int ty, Graphics2D graphics2D) {
+		if (eSelectedAnchor != GConstants.EAnchor.eRR && eSelectedAnchor != GConstants.EAnchor.eMM) {
+			resize(tx, ty);
+		} else {
+			AffineTransform t = new AffineTransform();
+			t.translate(tx, ty);
+			this.shape = t.createTransformedShape(this.shape); // 실제 데이터 이동
+
+			this.affineTransform.setToIdentity(); // 렌더링 변환 초기화 (또 적용 안 되게)
+		}
+		drawAnchor(graphics2D);
+	}
+
+	public void resize(int dx, int dy) {
+		Rectangle bounds = this.shape.getBounds();
+
+		double w = bounds.getWidth();
+		double h = bounds.getHeight();
+
+		if (w == 0 || h == 0) return;
+
+		double sx = 1.0;
+		double sy = 1.0;
+		double pivotX = bounds.getX();
+		double pivotY = bounds.getY();
+
+		// 앵커 기준점 및 축소/확대 방향 설정
+		switch (this.eSelectedAnchor) {
+			case eSE:
+				sx = (w + dx) / w;
+				sy = (h + dy) / h;
+				pivotX = bounds.getX();
+				pivotY = bounds.getY();
+				break;
+
+			case eSW:
+				sx = (w - dx) / w;
+				sy = (h + dy) / h;
+				pivotX = bounds.getX() + w;
+				pivotY = bounds.getY();
+				break;
+
+			case eNE:
+				sx = (w + dx) / w;
+				sy = (h - dy) / h;
+				pivotX = bounds.getX();
+				pivotY = bounds.getY() + h;
+				break;
+
+			case eNW:
+				sx = (w - dx) / w;
+				sy = (h - dy) / h;
+				pivotX = bounds.getX() + w;
+				pivotY = bounds.getY() + h;
+				break;
+
+			case eEE:
+				sx = (w + dx) / w;
+				sy = 1.0;
+				pivotX = bounds.getX();
+				pivotY = bounds.getY();
+				break;
+
+			case eWW:
+				sx = (w - dx) / w;
+				sy = 1.0;
+				pivotX = bounds.getX() + w;
+				pivotY = bounds.getY();
+				break;
+
+			case eSS:
+				sx = 1.0;
+				sy = (h + dy) / h;
+				pivotX = bounds.getX();
+				pivotY = bounds.getY();
+				break;
+
+			case eNN:
+				sx = 1.0;
+				sy = (h - dy) / h;
+				pivotX = bounds.getX();
+				pivotY = bounds.getY() + h;
+				break;
+
+			default:
+				return; // 회전 등 무관 앵커
+		}
+
+		AffineTransform transform = new AffineTransform();
+		transform.translate(pivotX, pivotY);    // 기준점으로 이동
+		transform.scale(sx, sy);                // 확대/축소
+		transform.translate(-pivotX, -pivotY);  // 다시 원상복귀
+
+		this.shape = transform.createTransformedShape(this.shape);  // 실제 shape에 적용
+	}
 
 }

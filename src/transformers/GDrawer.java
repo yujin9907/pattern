@@ -17,9 +17,11 @@ public class GDrawer extends GTransformer {
 	}
 
 	@Override
-	public void start(Graphics2D graphis2D, int x, int y) {
+	public boolean start(Graphics2D graphis2D, int x, int y) {
 		shape.setPoint(x, y);
+		return true;
 	}
+
 
 	@Override
 	public void drag(Graphics2D graphis2D, int x, int y) {
