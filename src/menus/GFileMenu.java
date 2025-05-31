@@ -51,6 +51,33 @@ public class GFileMenu extends JMenu {
 
 	public void open() {
 		System.out.println("open");
+
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("파일 열기");
+
+		int userSelection = fileChooser.showOpenDialog(null);
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+			File fileToOpen = fileChooser.getSelectedFile();
+
+			try (ObjectInputStream ois = new ObjectInputStream(
+					new BufferedInputStream(new FileInputStream(fileToOpen)))) {
+
+				// 도형 복원
+				Vector<GShape> loadedShapes = (Vector<GShape>) ois.readObject();
+
+				// 새로운 드로잉 패널 생성
+				GDrawingPanel newPanel = new GDrawingPanel();
+				newPanel.setShapes(loadedShapes); // 도형 설정 (setShapes는 별도 구현 필요)
+				newPanel.repaint();
+
+				// 탭에 추가
+				jTabbedPane.addTab(fileToOpen.getName(), newPanel);
+
+			} catch (IOException | ClassNotFoundException ex) {
+				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "파일 열기 중 오류가 발생했습니다", "오류", JOptionPane.ERROR_MESSAGE);
+			}
+		}
 	}
 
 	// TODO 5.26 try-catch 여기다가 넣어야 됨
