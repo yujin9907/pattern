@@ -17,6 +17,7 @@ public class GFileMenu extends JMenu {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	private GDrawingPanel drawingPanel;
+	private JTabbedPane jTabbedPane;
 
 	public GFileMenu() {
 		super("File");
@@ -32,19 +33,24 @@ public class GFileMenu extends JMenu {
 	public void initialize() {
 
 	}
-	public void associate(GDrawingPanel drawingPanel) {
+	public void associate(GDrawingPanel drawingPanel, JTabbedPane jTabbedPane) {
 		this.drawingPanel = drawingPanel;
+		this.jTabbedPane = jTabbedPane;
 	}
 
 
 
 	public void newPanel() {
 		System.out.println("new");
+		GDrawingPanel newPanel = new GDrawingPanel();
+		String tabName = "Untitled " + (jTabbedPane.getTabCount() + 1);
+		jTabbedPane.addTab(tabName, newPanel);
+		jTabbedPane.setSelectedComponent(newPanel); // 새 탭으로 전환
+		jTabbedPane.repaint();
 	}
 
 	public void open() {
 		System.out.println("open");
-
 	}
 
 	// TODO 5.26 try-catch 여기다가 넣어야 됨

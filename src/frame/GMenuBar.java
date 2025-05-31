@@ -1,6 +1,6 @@
 package frame;
 
-import javax.swing.JMenuBar;
+import javax.swing.*;
 
 import menus.GEditMenu;
 import menus.GFileMenu;
@@ -17,6 +17,8 @@ public class GMenuBar extends JMenuBar {
 	
 	// associations
 	private GDrawingPanel drawingPanel;
+	private JTabbedPane jTabbedPane;
+
 	
 	public GMenuBar() {
 		this.fileMenu = new GFileMenu();
@@ -30,11 +32,12 @@ public class GMenuBar extends JMenuBar {
 	}
 
 	public void initialize() {
-		this.fileMenu.associate(drawingPanel);
+		this.fileMenu.associate(drawingPanel, jTabbedPane);
 
 	}
 
-	public void associate(GDrawingPanel gDrawingPanel) {
+	public void associate(GDrawingPanel gDrawingPanel, JTabbedPane jTabbedPane) {
 		this.drawingPanel = gDrawingPanel;
+		this.jTabbedPane = jTabbedPane;
 	}
 }
