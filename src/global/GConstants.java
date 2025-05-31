@@ -1,5 +1,6 @@
 package global;
 
+import shapes.GGroup;
 import shapes.GPolygon;
 import shapes.GRectangle;
 import shapes.GShape;
@@ -26,7 +27,8 @@ public class GConstants {
         eEE(new Cursor(Cursor.E_RESIZE_CURSOR)), // 정동
         eWW(new Cursor(Cursor.W_RESIZE_CURSOR)),
         eRR(new Cursor(Cursor.HAND_CURSOR)), // TODO 추후 로테이트 커서 커스텀하기
-        eMM(new Cursor(Cursor.MOVE_CURSOR));
+        eMM(new Cursor(Cursor.MOVE_CURSOR)),
+        eDEFAULT(new Cursor(Cursor.DEFAULT_CURSOR));
 
         private Cursor cursor;
         private EAnchor(Cursor cursor) {
@@ -44,7 +46,8 @@ public class GConstants {
         eRectangle("rectangle", GShape.EPoints.e2P, GRectangle.class),
         eEllipse("ellipse", GShape.EPoints.e2P, GRectangle.class),
         eLine("line", GShape.EPoints.e2P, GRectangle.class),
-        ePolygon("polygon", GShape.EPoints.eNP, GPolygon.class);
+        ePolygon("polygon", GShape.EPoints.eNP, GPolygon.class),
+        eGroup("group", GShape.EPoints.e2P, GGroup.class);
 
         private String name;
         private GShape.EPoints drawingType;

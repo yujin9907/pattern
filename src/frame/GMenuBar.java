@@ -31,7 +31,6 @@ public class GMenuBar extends JMenuBar {
 
 	public void initialize() {
 		this.fileMenu.associate(drawingPanel);
-		this.editMenu.associate(drawingPanel);
 
 	}
 

@@ -28,7 +28,7 @@ public class GMover extends GTransformer {
 			this.py = y;
 			return true;
 		} else {
-			this.shape.drawAnchor(graphis2D);
+			this.shape.drawAnchors(graphis2D);
 			this.shape.setSelected(true);
 			return false;
 		}
@@ -42,7 +42,7 @@ public class GMover extends GTransformer {
 		int dx = x - px;
 		int dy = y - py;
 
-		this.shape.translate(dx, dy, graphis2D);
+		this.shape.getAffineTransform().translate(dx, dy);
 
 		this.px = x;
 		this.py = y;

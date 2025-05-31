@@ -161,32 +161,24 @@ public class GDrawingPanel extends JPanel {
         }
     }
 
-
-    public void groupingShapes() {
-        if (getSelectedCount() > 1) {
-            GGroup group = new GGroup();
-
-            for (GShape s : shapes) {
-                if (s.isSelected()) {
-                    group.add(s);
-                    this.shapes.remove(s);
-                }
-            }
-
-            this.shapes.add(group);
-        }
-    }
-
-    private int getSelectedCount() {
-        int cnt = 0;
-        if (shapes.isEmpty()) return cnt;
-
-        for (GShape s : shapes) {
-            if (s.isSelected()) {
-                cnt++;
+    public void groupSelectedShapes() {
+        java.util.List<GShape> selected = new java.util.ArrayList<>();
+        for (GShape shape : this.shapes) {
+            if (shape.isSelected()) {
+                selected.add(shape);
             }
         }
-        return cnt;
+        if (selected.size() <= 1) return;
+
+        GGroup group = new GGroup();
+        for (GShape shape : selected) {
+            group.add(shape);
+        }
+
+        this.shapes.removeAll(selected);
+        this.shapes.add(group);
+        group.setSelected(true);
+        this.repaint();
     }
 
 
@@ -207,6 +199,18 @@ public class GDrawingPanel extends JPanel {
 
         // TODO : 클릭하면 하나 선택되게 니네드리 알아서 해라...
         private void mouse1Click(MouseEvent e) throws Exception {
+            if (SwingUtilities.isRightMouseButton(e)) {
+                // 선택된 도형 수가 2개 이상일 때만 그룹화
+                int selectedCount = 0;
+                for (GShape shape : shapes) {
+                    if (shape.isSelected()) selectedCount++;
+                }
+                if (selectedCount >= 2) {
+                    groupSelectedShapes();
+                    return; // 더 이상 다른 동작 없음
+                }
+            }
+
             // 안 그리는 상태
             if (eDrawingState == EDrawingState.eIdle) {
                 // 점 두개인 경우

@@ -17,10 +17,18 @@ public class GResizer extends GTransformer {
         super(shape);
         this.shape = shape;
         this.eResizedAnchor = null;
+        px = -1;
+        py = -1;
     }
 
     @Override
     public boolean start(Graphics2D graphis2D, int x, int y) {
+        if (!shape.isSelected()) {
+            shape.drawAnchors(graphis2D);
+            shape.setSelected(true);
+            return false;
+        }
+
         this.px = x;
         this.py = y;
 
@@ -37,7 +45,6 @@ public class GResizer extends GTransformer {
             case eNN: eResizedAnchor = GConstants.EAnchor.eWW; cx=r.x+r.width/2; cy = r.y+r.height; break;
             default: break;
         }
-
         return true;
     }
 
@@ -45,19 +52,23 @@ public class GResizer extends GTransformer {
     // 다만 내부 논리를 모른다 할지라도 라이브러리를 가지고 만들 수 있어야 함
     @Override
     public void drag(Graphics2D graphis2D, int x, int y) {
+        if (px == -1 && py == -1) {
+            return;
+        }
+
         double dx = 0;
         double dy = 0;
 
         // TODO 마우스의 움직임 계산
-        GConstants.EAnchor eSelectedAnchor = this.shape.getESelectedAnchor();
         switch (eResizedAnchor) {
-            case eNW: break;
-            case eWW: break;
-            case eSW: break;
-            case eSS: break;
-            case eSE: break;
-            case eEE: break;
-            case eNN: break;
+            case eNW: dx = (x-px); dy = (y-py); break;
+            case eWW: dx = (x-px); dy = 0; break;
+            case eSW: dx = (x-px); dy = -(y-py); break;
+            case eSS: dx = 0; dy = -(y-py); break;
+            case eSE: dx = -(x-px); dy = -(y-py); break;
+            case eEE: dx = -(x-px); dy = 0; break;
+            case eNE: dx = -(x-px); dy = (y-py); break;
+            case eNN: dx = 0; dy = (y-py); break;
             default: break;
         }
 
