@@ -18,6 +18,7 @@ public class GDrawingPanel extends JPanel {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
     // 드로잉 상태
     private Vector<GShape> shapes;
     private GTransformer transformer;
@@ -26,6 +27,12 @@ public class GDrawingPanel extends JPanel {
     private EDrawingState eDrawingState;
     private GShape currentShape;
     private GShape selectedShape;
+    // 저장상태 확인
+    private boolean bUpdated;
+
+
+
+
 
 
     public GDrawingPanel() {
@@ -40,35 +47,57 @@ public class GDrawingPanel extends JPanel {
         this.shapes = new Vector<GShape>();
         this.eShapeTool = null;
         this.eDrawingState = EDrawingState.eIdle;
+        this.bUpdated = false;
     }
-
 
     public enum EDrawingState {
         eIdle,
         e2P,
         eNP
     }
-
-
-    public void setEShapeType(GConstants.EShapeTool eShapeTool) {
-        this.eShapeTool = eShapeTool;
+    public void initialize() {
+        this.shapes.clear();
+        this.repaint();
     }
 
+
+
+
+
+    // getter, setter
     public Vector<GShape> getShapes() {
         return shapes;
     }
+    public boolean isUpdated() {
+        return this.bUpdated;
+    }
 
+    public void setbUpdated(boolean bUpdated) {
+        this.bUpdated = bUpdated;
+    }
+    public void seteShapeTool(GConstants.EShapeTool eShapeTool) {
+        this.eShapeTool = eShapeTool;
+    }
+    public void setEShapeType(GConstants.EShapeTool eShapeTool) {
+        this.eShapeTool = eShapeTool;
+    }
     public void setShapes(Vector<GShape> shapes) {
         this.shapes = shapes;
     }
-
-    public void initialize() {
-
+    public void setShapes(Object shapes) {
+        // TODO object 를 getclass() 해서 타입에 맞는지 검증하거나 아니면 추론해서 더할 수 있음
+        // 워닝을 없애도록 하면 추가 점수
+        Vector<GShape> vector = (Vector<GShape>) shapes;
+        this.shapes = vector;
+        this.repaint();
     }
 
-    public void initialize(String shape) {
-        repaint();
-    }
+
+
+
+
+
+
 
 
     @Override
@@ -133,7 +162,14 @@ public class GDrawingPanel extends JPanel {
                 }
             }
         }
+        this.bUpdated = true;
         this.repaint();
+
+        // TODO 좌표까지 확인하면서 좀 더 섬세하게 할 수도 있음 (transform 안에서 구현해야 되는데, 각 구현체마다 로직이 다르겠지)
+//        this.bUpdated = this.transformer.isUpdate();
+//        if (bUpdated) {
+//            this.repaint();
+//        }
     }
 
     // 현재빼고 다 선택 취소
