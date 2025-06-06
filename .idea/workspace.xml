@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5322c238-5c2b-4ab7-85f4-6dc228c665fa" name="Changes" comment="0531 - 저장된 파일 열기">
+    <list default="true" id="94e69f5e-8b7b-47f6-b587-c458d5797a08" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" afterPath="$PROJECT_DIR$/file" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GDrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global/GConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menus/GFileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/GFileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,94 +14,39 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2xr9Lxrvylf5sYuxhyi06QfhE1c" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2y8SFdL1ZlUd70leSZwEZeLLwvB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;task-13&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "task-13",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="global.Main" />
-      <module name="pattern-3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="global.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5322c238-5c2b-4ab7-85f4-6dc228c665fa" name="Changes" comment="" />
-      <created>1748685275160</created>
+      <changelist id="94e69f5e-8b7b-47f6-b587-c458d5797a08" name="Changes" comment="" />
+      <created>1749214607356</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1748685275160</updated>
-      <workItem from="1748685276353" duration="4028000" />
-      <workItem from="1748766649701" duration="17000" />
-      <workItem from="1748844185791" duration="7248000" />
+      <updated>1749214607356</updated>
+      <workItem from="1749214608786" duration="304000" />
     </task>
-    <task id="LOCAL-00001" summary="0531 - 그룹화 오류 수정 : 그룹 리사이즈, 로테이트 미완">
-      <option name="closed" value="true" />
-      <created>1748687921471</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1748687921471</updated>
-    </task>
-    <task id="LOCAL-00002" summary="0531 - 저장, 다른이름으로저장">
-      <option name="closed" value="true" />
-      <created>1748688532795</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1748688532795</updated>
-    </task>
-    <task id="LOCAL-00003" summary="0531 - 새 창 열기">
-      <option name="closed" value="true" />
-      <created>1748689184278</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1748689184278</updated>
-    </task>
-    <task id="LOCAL-00004" summary="0531 - 저장된 파일 열기">
-      <option name="closed" value="true" />
-      <created>1748689299469</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1748689299469</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,31 +57,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="task-13" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="0531 - 그룹화 오류 수정 : 그룹 리사이즈, 로테이트 미완" />
-    <MESSAGE value="0531 - task-12 그룹핑 머지 보류" />
-    <MESSAGE value="0531 - task-11 중 클릭 오류 및 리사이즈 추가" />
-    <MESSAGE value="0531 - 저장, 다른이름으로저장" />
-    <MESSAGE value="0531 - 새 창 열기" />
-    <MESSAGE value="0531 - 저장된 파일 열기" />
-    <option name="LAST_COMMIT_MESSAGE" value="0531 - 저장된 파일 열기" />
   </component>
 </project>
