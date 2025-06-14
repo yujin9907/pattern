@@ -16,10 +16,6 @@ public class GShapeToolBar extends JToolBar {
 	private GConstants.EShapeTool eShapeTool;
 	
 
-
-	
-	
-
 	private static final long serialVersionUID = 1L;
 	
 	// component : GToolbar // 자식 : 내가 등록해야
@@ -44,17 +40,23 @@ public class GShapeToolBar extends JToolBar {
 		addToolbarButton();
 	}
 
-	// component : GToolbar 버튼 (rectangle, triangle, oval, polygon, textbox)
 	private void addToolbarButton() {
-
-		// enum = 배열 = n개의 원소를 가진 벡터
 		ButtonGroup group = new ButtonGroup();
 
-		for (GConstants.EShapeTool eShapeTool : GConstants.EShapeTool.values()) {
-			JRadioButton button = new JRadioButton(eShapeTool.getName());
+		for (GConstants.EShapeTool tool : GConstants.EShapeTool.values()) {
+			// 라디오 버튼 생성
+			JRadioButton button = new JRadioButton(tool.getName());
+
+			String imagePath = "src/rsc/" + tool.getImageFileName() + ".png"; // 이미지 경로 설정
+			ImageIcon icon = new ImageIcon(imagePath);
+			icon.setImage(icon.getImage().getScaledInstance(15, 15, Image.SCALE_DEFAULT));
+			button.setIcon(icon);
+			System.out.println("path :" + imagePath);
+
+			// 액션 리스너 추가
 			ActionListener actionListener = new ActionHandler();
 			button.addActionListener(actionListener);
-			button.setActionCommand(eShapeTool.toString()); // ActionHandler.actionPerformed() 에서 꺼내 쓸 거임
+			button.setActionCommand(tool.toString());
 			group.add(button);
 			this.add(button);
 		}

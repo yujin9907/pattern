@@ -140,18 +140,19 @@ public class GConstants {
 
     public enum EShapeTool {
         // TODO : 상수 코드에다 쓰지말고 나중에 파일 따로 빼라 (constant 나 resource 로)
-        eSelect("select", GShape.EPoints.e2P, GRectangle.class),
-        eRectangle("rectangle", GShape.EPoints.e2P, GRectangle.class),
-        eEllipse("ellipse", GShape.EPoints.e2P, GRectangle.class),
-        eLine("line", GShape.EPoints.e2P, GRectangle.class),
-        ePolygon("polygon", GShape.EPoints.eNP, GPolygon.class),
-        eGroup("group", GShape.EPoints.e2P, GGroup.class);
+        eSelect("", "", GShape.EPoints.e2P, GRectangle.class),
+        eRectangle("",  "", GShape.EPoints.e2P, GRectangle.class),
+        eEllipse("",  "", GShape.EPoints.e2P, GRectangle.class),
+        eLine("",  "", GShape.EPoints.e2P, GRectangle.class),
+        ePolygon("",  "", GShape.EPoints.eNP, GPolygon.class),
+        eTextArea("",  "", GShape.EPoints.e2P, GGroup.class);
 
-        private String name; // TODO 6.9 : 이걸 xml로 eSelect 와 eSelect 라는 태그를 가진 노드를 불러와서 넣을 수 있음!! (메서드가 있음)
+        private String name;
+        private String imageFileName;
         private GShape.EPoints drawingType;
         private Class<? extends GShape> classShape;
 
-        EShapeTool(String name, GShape.EPoints drawingType, Class<? extends GShape> gShape) {
+        EShapeTool(String name, String imageFileName, GShape.EPoints drawingType, Class<? extends GShape> gShape) {
             this.name = name;
             this.drawingType = drawingType;
             this.classShape = gShape;
@@ -159,6 +160,10 @@ public class GConstants {
 
         public String getName() {
             return this.name;
+        }
+
+        public String getImageFileName() {
+            return imageFileName;
         }
 
         public GShape.EPoints getDrawingType() {
@@ -178,6 +183,8 @@ public class GConstants {
                 for (EShapeTool edit : EShapeTool.values()) {
                     if (nodeName.equals(edit.toString())) {
                         edit.name = child.getAttributes().getNamedItem("label").getNodeValue();
+                        edit.imageFileName = child.getAttributes().getNamedItem("imageFileName").getNodeValue();
+
 //                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
                     }
                 }
