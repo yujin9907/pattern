@@ -38,15 +38,17 @@ public class GMainFrame extends JFrame {
 	public GMainFrame() {
 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE); // 창 닫을 때 프로그램 종료
+		GConstants constants = new GConstants();
+		constants.readFromFile("src/config/config.xml");
 		
 		// attribute (속성) // 상수 사용 지양 // TODO
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
 //		this.setSize((int) (width*0.4), (int)(height*0.4));
-		this.setSize(GConstants.GMainFrame.w, GConstants.GMainFrame.h);
+		this.setSize(GConstants.EMainFrame.eW.getValue(), GConstants.EMainFrame.eH.getValue());
 //		this.setLocation((int) (width*0.1), (int)(height*0.1));
-		this.setLocation(GConstants.GMainFrame.x, GConstants.GMainFrame.y);
+		this.setLocation(GConstants.EMainFrame.eX.getValue(), GConstants.EMainFrame.eY.getValue());
 
 
 		// component (부품)

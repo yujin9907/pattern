@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e69f5e-8b7b-47f6-b587-c458d5797a08" name="Changes" comment="0606 - 누락 추가">
+    <list default="true" id="89a3f687-aa3d-4d38-8f17-d5dcbaa96210" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/config/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/GFileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/GFileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EAnchor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EAnchor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EShapeTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EShapeTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$GMainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/global/GConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dsfsdfsdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/quit_tt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frame/GMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GMainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global/GConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,30 +28,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2y8SFdL1ZlUd70leSZwEZeLLwvB" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2yUbh58hgWKKkqcwoUfY4qvGecc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;task-14&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "task-14",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/config" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="global.Main" />
@@ -63,25 +80,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="94e69f5e-8b7b-47f6-b587-c458d5797a08" name="Changes" comment="" />
-      <created>1749214607356</created>
+      <changelist id="89a3f687-aa3d-4d38-8f17-d5dcbaa96210" name="Changes" comment="" />
+      <created>1749892219445</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1749214607356</updated>
-      <workItem from="1749214608786" duration="304000" />
-      <workItem from="1749279964668" duration="178000" />
-      <workItem from="1749366386391" duration="222000" />
-      <workItem from="1749439181923" duration="602000" />
+      <updated>1749892219445</updated>
+      <workItem from="1749892220758" duration="2511000" />
     </task>
-    <task id="LOCAL-00001" summary="0606 - 누락 추가">
-      <option name="closed" value="true" />
-      <created>1749217823933</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1749217823933</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,10 +102,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="0606 - 정리" />
-    <MESSAGE value="0606 - 누락 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="0606 - 누락 추가" />
   </component>
 </project>
