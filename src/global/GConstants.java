@@ -139,7 +139,6 @@ public class GConstants {
     }
 
     public enum EShapeTool {
-        // TODO : 상수 코드에다 쓰지말고 나중에 파일 따로 빼라 (constant 나 resource 로)
         eSelect("", "", GShape.EPoints.e2P, GRectangle.class),
         eRectangle("",  "", GShape.EPoints.e2P, GRectangle.class),
         eEllipse("",  "", GShape.EPoints.e2P, GRectangle.class),
