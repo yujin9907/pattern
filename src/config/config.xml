@@ -35,7 +35,6 @@
 		<eSelect label = "선택도구" toolTipText = "새로운 파일을 생성" imageFileName = "select"/> 
 		<eRectangle label = "네모도구" toolTipText = "새로운 파일을 생성" imageFileName = "rectangle"/>
 		<eEllipse label = "원도구" toolTipText = "새로운 파일을 생성" imageFileName = "ellipse"/>
-		<eEllipse label = "원도구" toolTipText = "새로운 파일을 생성" imageFileName = "ellipse"/>
 		<eLine label = "라인도구" toolTipText = "새로운 파일을 생성" imageFileName = "line"/>
 		<ePolygon label = "다각형도구" toolTipText = "새로운 파일을 생성" imageFileName = "polygon"/>
 		<eTextArea label = "텍스트박스" toolTipText = "새로운 파일을 생성" imageFileName = "textArea"/>

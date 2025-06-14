@@ -34,7 +34,7 @@ public class GConstants {
                 Node node = nodeList.item(i);
 
                 // xml 파일 기준
-                if (node.getNodeType() == Node.ELEMENT_NODE) { // TODO 속성노드인지, 엘레멘트(자식)인지 확인
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
                     if (node.getNodeName().equals(EMainFrame.class.getSimpleName())) {
                         EMainFrame.setValues(node);
                     } else if (node.getNodeName().equals(EMenu.class.getSimpleName())) {
@@ -46,10 +46,9 @@ public class GConstants {
                     } else if (node.getNodeName().equals(EGraphicsMenuItem.class.getSimpleName())) {
                         EGraphicsMenuItem.setValues(node);
                     }
-                    // 툴바버튼
-//                    else if (node.getNodeName().equals(EToolBarButton.class.getSimpleName())) {
-//                        EToolBarButton.setValue(node);
-//                    }
+                    else if (node.getNodeName().equals("EToolBarButton")) {
+                        EShapeTool.setValues(node);
+                    }
                 }
             }
         } catch (ParserConfigurationException e) {
@@ -169,6 +168,20 @@ public class GConstants {
         // TODO 익셉션처리 추후 aspect 로 처리할 예정 : 익셉션처리 아주 중요하다 마구잡이로 던지면 안 된다 이렇게
         public GShape newShape() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
             return classShape.getConstructor().newInstance();
+        }
+        public static void setValues(Node node) {
+            NodeList children = node.getChildNodes();
+            for (int i = 0; i < children.getLength(); i++) {
+                Node child = children.item(i);
+                String nodeName = child.getNodeName();
+
+                for (EShapeTool edit : EShapeTool.values()) {
+                    if (nodeName.equals(edit.toString())) {
+                        edit.name = child.getAttributes().getNamedItem("label").getNodeValue();
+//                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
+                    }
+                }
+            }
         }
     }
 
