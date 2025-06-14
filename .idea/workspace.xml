@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89a3f687-aa3d-4d38-8f17-d5dcbaa96210" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/config/config.xml" afterDir="false" />
+    <list default="true" id="89a3f687-aa3d-4d38-8f17-d5dcbaa96210" name="Changes" comment="0614 - xml 적용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EAnchor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EAnchor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EFileMenuItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$EShapeTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants$EShapeTool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/global/GConstants$GMainFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/global/GConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/global/GConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dsfsdfsdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quit_tt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frame/GMainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frame/GMainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/global/GConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/global/GConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/GEditMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/GEditMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/GgraphicMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/GgraphicMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +77,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749892219445</updated>
-      <workItem from="1749892220758" duration="2511000" />
+      <workItem from="1749892220758" duration="4347000" />
     </task>
+    <task id="LOCAL-00001" summary="0614 - xml 적용">
+      <option name="closed" value="true" />
+      <created>1749896059390</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749896059390</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,5 +103,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0614 - xml 적용" />
+    <option name="LAST_COMMIT_MESSAGE" value="0614 - xml 적용" />
   </component>
 </project>

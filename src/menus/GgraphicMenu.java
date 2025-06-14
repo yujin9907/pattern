@@ -1,6 +1,8 @@
 package menus;
 
 
+import global.GConstants;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -16,15 +18,13 @@ public class GgraphicMenu extends JMenu {
 	public GgraphicMenu() {
 		super("Graphic");
 		
-		this.lineThicknessItem = new JMenuItem("Line Thickness");
-		this.lineStyleItem = new JMenuItem("Line Style");
-		this.fontStyleItem = new JMenuItem("Font Style");
-		this.fontSizeItem = new JMenuItem("Font Size");
-		
-		this.add(lineThicknessItem);
-		this.add(lineStyleItem);
-		this.add(fontStyleItem);
-		this.add(fontSizeItem);
+
+		for (GConstants.EGraphicsMenuItem item : GConstants.EGraphicsMenuItem.values()) {
+			JMenuItem menuItem = new JMenuItem(item.getName());
+			// menuItem.addActionListener(actionHandler); // TODO
+			menuItem.setActionCommand(item.name());
+			this.add(menuItem);
+		}
 	}
 	
 	

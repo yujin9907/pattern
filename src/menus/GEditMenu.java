@@ -1,6 +1,8 @@
 package menus;
 
 
+import global.GConstants;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
@@ -15,14 +17,12 @@ public class GEditMenu extends JMenu {
 	public GEditMenu() {
 		super("Edit");
 
-		this.propertyItem = new JMenuItem("Property");
-		this.undoItem = new JMenuItem("Undo");
-		this.redoItem = new JMenuItem("Redo");
-
-		this.add(this.propertyItem);
-		this.add(this.undoItem);
-		this.add(this.redoItem);
-
+		for (GConstants.EEditMenuItem item : GConstants.EEditMenuItem.values()) {
+			JMenuItem menuItem = new JMenuItem(item.getName());
+			// menuItem.addActionListener(actionHandler); // TODO
+			menuItem.setActionCommand(item.name());
+			this.add(menuItem);
+		}
 
 	}
 

@@ -207,9 +207,9 @@ public class GConstants {
                 String nodeName = child.getNodeName();
 
                 for (EFileMenuItem edit : EFileMenuItem.values()) {
-                    if (nodeName.equals(edit.getName())) {
+                    if (nodeName.equals(edit.toString())) {
                         edit.name = child.getAttributes().getNamedItem("label").getNodeValue();
-                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
+//                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
                         edit.toolTip = child.getAttributes().getNamedItem("toolTipText").getNodeValue();
                     }
                 }
@@ -218,8 +218,8 @@ public class GConstants {
     }
 
     public enum EEditMenuItem {
-        eRedo("", "", ""),
-        eUndo("", "", ""),
+        eReDo("", "", ""),
+        eUnDo("", "", ""),
         eCut("", "", ""),
         eCopy("", "", ""),
         ePaste("", "", ""),
@@ -251,9 +251,9 @@ public class GConstants {
                 String nodeName = child.getNodeName();
 
                 for (EEditMenuItem edit : EEditMenuItem.values()) {
-                    if (nodeName.equals(edit.getName())) {
+                    if (nodeName.equals(edit.toString())) {
                         edit.name = child.getAttributes().getNamedItem("label").getNodeValue();
-                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
+//                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue(); // TODO
                         edit.toolTip = child.getAttributes().getNamedItem("toolTipText").getNodeValue();
                     }
                 }
@@ -291,9 +291,9 @@ public class GConstants {
                 String nodeName = child.getNodeName();
 
                 for (EGraphicsMenuItem edit : EGraphicsMenuItem.values()) {
-                    if (nodeName.equals(edit.getName())) {
+                    if (nodeName.equals(edit.toString())) {
                         edit.name = child.getAttributes().getNamedItem("label").getNodeValue();
-                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
+//                        edit.methodName = child.getAttributes().getNamedItem("method").getNodeValue();
                         edit.toolTip = child.getAttributes().getNamedItem("toolTipText").getNodeValue();
                     }
                 }
